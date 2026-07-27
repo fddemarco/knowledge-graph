@@ -1,0 +1,12 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "Rating": "text",
+    "Category": "multitext",
+    "Date": "date",
+    "Author": "text",
+    "Status": "text"
+  }
+}

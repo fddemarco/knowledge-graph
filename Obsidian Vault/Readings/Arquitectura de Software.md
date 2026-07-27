@@ -1,0 +1,200 @@
+---
+base: "[[Reading List.base]]"
+Rating: ⭐️⭐️
+Category:
+  - Backend
+  - System Design
+  - Course
+  - Front
+Author: FIUBA
+Status: Completed
+---
+## Notes
+
+---
+
+- Clase 1 - SKIP
+    - solo presenta un poco las materias y sus tps
+- Clase 2 - Intro a Backend ([link](https://youtu.be/NBfaMV99iak?feature=shared))
+    - Monolitos vs Microservicios
+    - Arquitecturas
+        - No Layers
+        - Package by Layer
+        - Package by feature
+        - Hexagonal
+        - Onion
+    - Stateless vs Statefull
+    - REST (RESTful vs REST-like)
+        - Nivel 0 - Usar HTTP
+        - Nivel 1 - Usar URIs para distinguir recursos
+        - Nivel 2 - Usar HTTP verbs → REST-like
+        - Nivel 3 - HATEOAS (no se usa) → RESTful
+    - HTTP Verbs
+        - POST - Crear un elemento
+        - PUT - Reemplazar un elemento
+        - PATCH - Modificar un elemento
+        - GET - Obtener un elemento
+        - DELETE - Eliminar un elemento
+    - Status Codes ([link](https://http.cat/))
+        - 1xx: Respuestas informativas (muy raro)
+        - 2xx: Respuestas satisfactorias
+        - 3xx: Redirecciones
+        - 4xx: Errores de uso por parte de los clientes
+        - 5xx: Errores de los servidores
+    - Workshop de REST ([link](https://github.com/ingenieria-del-software-2/rest-workshop))
+        - Definir un endpoint
+        - Aplicar Package by Layer Design
+        - Test de Integracion
+        - Docker
+- Clase 3
+    - Intro a Docker (3.1)
+        - Definir Dockerfile
+        - Definir Networks
+        - Buildear imagen
+        - Optimizar la cache de docker
+    - Intro a Agile (3.2)
+        - Waterfall
+        - Spiral Model
+        - Rapid Application Development
+        - Scrum
+        - XP
+        - Crystal
+- Clase 4 - Intro a DevOps
+    - Video ([link](https://youtu.be/kBV8gPVZNEE?feature=shared))
+    - Habla un poco de la  filosofia DevOps
+    - Worflows de Git
+        - Git Flow
+        - GitHub Flow
+        - Trunk-based development
+- Clase 5 - SKIP
+    - Presentan TP1
+- Clase 6 - Intro a React
+    - DOM
+    - Virtual DOM
+    - Components
+    - Hooks
+    - Custom Hooks
+    - Properties
+    - Context
+    - State management
+        - Redux (poco amigable)
+        - Zustand (muy amigable)
+        - Mobx (raro)
+        - Data fetching + cache
+            - React Query (+ robusto)
+            - SWR (+ simple)
+    - Styling
+        - Styled components
+        - Emotion CSS
+        - Tailwind
+        - Component libraries
+            - Material UI (MUI)
+            - Ant
+            - paper
+    - Rendering
+        - Client side rendering
+            - React, Next.js
+        - Server side rendering
+            - Next.js, Vite, Remix 
+        - Server side generation
+            - Next.js, GatsbyJS
+        - React Server Components
+    - Resumen:
+        - Para crear una app de React, usamos Vite (+ simple), Next.js (+ robusto), o Remix (raro)
+        - Workshop de [Vite](https://youtu.be/hcfE6Ahek8Q?list=PLA2i5ySS1-JtFERLzb3cS-mNclGwl8YTm&t=5322)
+            - React Query
+            - Axios
+
+- Clase 7 → La peor clase hasta ahora, parece dada por un trainee
+    - React Native
+        - Expo
+        - Expo Go
+        - Expo Development Build
+        - [Links](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+        - Axios
+        - Firebase
+- Clase 8 - Gestion de proyectos
+    - Estuvieron hablando de forma relajada sobre “gestion de proyectos”
+    - Por que los proyectos de software fallan
+    - Atributos de calidad
+    - Lead time → tiempo de desarrollo hasta que le llegue al cliente
+- Clase 9 - Gestion de proyectos 2
+    - Mas de lo mismo
+    - Ahora con foco en organizaciones grandes
+    - Anecdotas personales
+- Clase 10 - Arquitectura de Software
+    - Hablan un poquito sobre monolitos, sistemas distribuidos, kubernetes, docker
+    - Todo en formato de charla, anecdotas personales, etc.
+    - Concepto importante: las decisiones de arquitectura se retrasan hasta el ultimo momento responsable.
+- Clase 11 - Dinamica de Equipos
+    - RACI Matrix
+        - Las columnas son los roles
+        - Las filas son las tareas
+    - MoSCoW
+        - Must have, should have, could have, won’t have
+    - Impact vs Effort
+- Clase 12 - Proceso de Entrega
+    - Release Planning
+    - Slicing
+- Clase 13 - Operaciones
+    - 
+- Clase 14 - Charlando con una Recruiter
+    - [Star Method](https://nationalcareers.service.gov.uk/careers-advice/interview-advice/the-star-method)
+        - Contexto de situacion
+        - Tareas
+        - Acciones
+        - Reflexion sobre lo aprendido
+    - Proceso de Recruiting
+        - Recruiting / HR
+            - Motivaciones al cambio
+                - Hablar del desafio tecnico
+                - Evitar sincericidios
+                - Nunca echarle la culpa a la empresa
+            - Aptitudes profesionales
+            - Intereses
+            - Resumen de carrera y trayectoria
+                - Si preguntan sobre feeback que impulso tu carrera, hablar de puntos de mejora. Evitar discurso trillado de que todo fue genial siempre.
+            - Expectativas de plata → salario base, esta dentro del presupuesto para el cargo?
+        - Hiring Managers
+            - Comunicacion
+            - Colaboracion
+            - Match tecnico inicial
+→ Revisar el perfil del hiring manager
+        - Evaluacion Tecnica
+            - Ejercicios de programacion
+            - desafios de codigo async y sync
+→ Aprovechar para preguntar sobre la cultura
+        - Entrevista Cultural
+            - Culture add
+            - Encajar en la forma de trabajo
+            - Aportar a la empresa
+    - Participar en comunidades
+        - [Nerdearla](https://nerdear.la/en/)
+        - [OpenQube](https://openqube.io/)
+        - [Hacker news](https://news.ycombinator.com/)
+        - Jobs YCombinator, [Wellfound](https://wellfound.com/), [Crunchbase](https://www.crunchbase.com/)
+        - [Techcrunch](https://techcrunch.com/)
+- Clase 15 - DevOps
+    - Dev vs Ops
+    - Montoring
+    - [SRE](https://sre.google/books/)
+- Clase 16 - Intro a DDD
+    - Bounded Context
+        - Aggregates, Entities, Value Objects
+        - CQRS, Factories, Repositories, Services 
+    - Context Maps
+    - Event Storming
+    - Ubiquitous language
+- Clase 17 - Atributos de Calidad
+    - Responsiveness
+    - Uptime
+    - Reliability
+    - Scalability
+    - Maintainability
+    - Usability
+    - Error rate
+    - Deployability
+    - Apdex
+- Clase 18 - SKIP - Accesibilidad
+- Clase 19 - Cloud Computing
+    - Se ponen a ver un ejemplo de Terraform sobre AWS
