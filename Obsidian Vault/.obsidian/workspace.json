@@ -8,20 +8,49 @@
         "type": "tabs",
         "children": [
           {
-            "id": "f5192735ced0e3b4",
+            "id": "39a380bb3eaacdba",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Readings/Reading List/Arquitectura de Software.md",
+                "file": "Software Architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Arquitectura de Software"
+              "title": "Software Architecture"
+            }
+          },
+          {
+            "id": "fe020e8941c3da0d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "arc42.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "arc42"
+            }
+          },
+          {
+            "id": "324fc38d701c9ea9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "C4 model.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "C4 model"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -184,8 +213,18 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "f5192735ced0e3b4",
+  "active": "324fc38d701c9ea9",
   "lastOpenFiles": [
+    "arc42.md",
+    "C4 model.md",
+    "Software Documentation.md",
+    "Software Architecture.md",
+    "Readings/Refactoring Databases.md",
+    "Readings/Reading List.base",
+    "Readings/Reading List New book.md",
+    "Welcome.md",
+    "create a link.md",
+    "Software Architecture",
     "Readings/Reading List/Applying DDD.md",
     "Readings/Reading List/Airbyte Academy.md",
     "Readings/Reading List/Agile Software Development Principles, Patterns, and Practices.md",
@@ -204,14 +243,6 @@
     "Readings/Reading List/Continuous Delivery.md",
     "Readings/Reading List/Release it!.md",
     "Readings/Reading List/The Art of Agile Development.md",
-    "Readings/Reading List/The UML Reference Manual.md",
-    "Readings/Reading List/Growing OO Software by Tests 1.md",
-    "Readings/Reading List/From Journeyman to Master.md",
-    "Readings/Reading List/Microservices Patterns.md",
-    "Readings/Reading List/Head First Software Development.md",
-    "Readings/Reading List/Object Solutions.md",
-    "Readings/Reading List/Object Oriented Software Engineering.md",
-    "Readings/Reading List/Code Complete.md",
     "Readings/Reading List/Reading List.base",
     "Readings/Reading List",
     "Readings",
