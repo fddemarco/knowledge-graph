@@ -41,16 +41,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C4 model.md",
+                "file": "Software Architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C4 model"
+              "title": "Software Architecture"
+            }
+          },
+          {
+            "id": "15b08420af272b5c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "ADR.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ADR"
+            }
+          },
+          {
+            "id": "ff0ad77cdf8c961f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Domain Driven Design (DDD).md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Domain Driven Design (DDD)"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -213,12 +241,14 @@
       "obsidian-importer:Open Importer": false
     }
   },
-  "active": "324fc38d701c9ea9",
+  "active": "ff0ad77cdf8c961f",
   "lastOpenFiles": [
-    "arc42.md",
+    "ADR.md",
     "C4 model.md",
-    "Software Documentation.md",
+    "Domain Driven Design (DDD).md",
+    "arc42.md",
     "Software Architecture.md",
+    "Software Documentation.md",
     "Readings/Refactoring Databases.md",
     "Readings/Reading List.base",
     "Readings/Reading List New book.md",
@@ -241,8 +271,6 @@
     "Readings/Reading List/Arquitectura de Software.md",
     "Readings/Reading List/Patterns of Enterprise Application Architecture.md",
     "Readings/Reading List/Continuous Delivery.md",
-    "Readings/Reading List/Release it!.md",
-    "Readings/Reading List/The Art of Agile Development.md",
     "Readings/Reading List/Reading List.base",
     "Readings/Reading List",
     "Readings",
