@@ -4,81 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "7a7bb4589c2ac01c",
+        "id": "7575ddd3cd2c4b18",
         "type": "tabs",
         "children": [
           {
-            "id": "39a380bb3eaacdba",
+            "id": "37387323ae027ebb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Software Architecture.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Software Architecture"
-            }
-          },
-          {
-            "id": "fe020e8941c3da0d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "arc42.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "arc42"
-            }
-          },
-          {
-            "id": "324fc38d701c9ea9",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Software Architecture.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Software Architecture"
-            }
-          },
-          {
-            "id": "15b08420af272b5c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ADR.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "ADR"
-            }
-          },
-          {
-            "id": "ff0ad77cdf8c961f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Domain Driven Design (DDD).md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Domain Driven Design (DDD)"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 4
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true
+                "autoReveal": true,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "Files"
@@ -237,18 +178,26 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "obsidian-importer:Open Importer": false
+      "bases:Create new base": false
     }
   },
-  "active": "ff0ad77cdf8c961f",
+  "active": "37387323ae027ebb",
   "lastOpenFiles": [
-    "ADR.md",
-    "C4 model.md",
-    "Domain Driven Design (DDD).md",
-    "arc42.md",
-    "Software Architecture.md",
-    "Software Documentation.md",
+    "Communication/Communication.md",
+    "Engineering career/Interviews.md",
+    "Communication",
+    "Engineering career/Engineering career.md",
+    "Software Engineering/Software Engineering.md",
+    "Engineering career",
+    "Engineering Management/Engineering Management.md",
+    "Software Engineering",
+    "Software Architecture/Domain Driven Design (DDD).md",
+    "Engineering Management",
+    "Software Architecture/ADR.md",
+    "Software Architecture/C4 model.md",
+    "Software Architecture/arc42.md",
+    "Software Architecture/Software Architecture.md",
+    "Software Architecture/Software Documentation.md",
     "Readings/Refactoring Databases.md",
     "Readings/Reading List.base",
     "Readings/Reading List New book.md",
@@ -266,15 +215,9 @@
     "Readings/Reading List/Reading List New book.md",
     "Readings/Reading List/Clean Architecture.md",
     "Readings/Reading List/Clean Code.md",
-    "Readings/Reading List/The Clean Coder.md",
-    "Readings/Reading List/Clean Craftmanship.md",
-    "Readings/Reading List/Arquitectura de Software.md",
-    "Readings/Reading List/Patterns of Enterprise Application Architecture.md",
-    "Readings/Reading List/Continuous Delivery.md",
     "Readings/Reading List/Reading List.base",
     "Readings/Reading List",
     "Readings",
-    "Untitled.base",
-    "f1"
+    "Untitled.base"
   ]
 }
