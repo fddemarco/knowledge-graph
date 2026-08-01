@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "7575ddd3cd2c4b18",
+        "id": "ee870cc78b1c137d",
         "type": "tabs",
         "children": [
           {
-            "id": "37387323ae027ebb",
+            "id": "3a9a251a233b83fc",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -181,14 +181,24 @@
       "bases:Create new base": false
     }
   },
-  "active": "37387323ae027ebb",
+  "active": "3a9a251a233b83fc",
   "lastOpenFiles": [
+    "Strategy/Tree of Jobs to be Done Framework.md",
+    "Strategy/Strategy.md",
+    "References/Blogs.md",
+    "References",
+    "Project Management/Ultimate Collection of PRDs.md",
+    "Strategy",
+    "Project Management/Product Requirement Document.md",
+    "Career Development/Promotions.md",
+    "Career Development/Interviews.md",
+    "Career Development/Career Development.md",
+    "Project Management/Project Management.md",
+    "Project Management",
     "Communication/Communication.md",
-    "Engineering career/Interviews.md",
     "Communication",
-    "Engineering career/Engineering career.md",
     "Software Engineering/Software Engineering.md",
-    "Engineering career",
+    "Career Development",
     "Engineering Management/Engineering Management.md",
     "Software Engineering",
     "Software Architecture/Domain Driven Design (DDD).md",
@@ -208,16 +218,6 @@
     "Readings/Reading List/Airbyte Academy.md",
     "Readings/Reading List/Agile Software Development Principles, Patterns, and Practices.md",
     "Readings/Reading List/Advanced OOP.md",
-    "Readings/Reading List/Accelerate.md",
-    "Readings/Reading List/99 Bottles of OOP.md",
-    "Readings/Reading List/97 Things Every Cloud Engineer Should Know.md",
-    "Readings/Reading List/14 Habits of Highly Productive Developers.md",
-    "Readings/Reading List/Reading List New book.md",
-    "Readings/Reading List/Clean Architecture.md",
-    "Readings/Reading List/Clean Code.md",
-    "Readings/Reading List/Reading List.base",
-    "Readings/Reading List",
-    "Readings",
-    "Untitled.base"
+    "Readings/Reading List/Reading List.base"
   ]
 }

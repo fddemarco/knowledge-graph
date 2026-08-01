@@ -1,3 +1,5 @@
+[[Career Development]]
+
 [**Cracking the Coding Interview**](https://www.crackingthecodinginterview.com/?ref=blog.pragmaticengineer.com) by Gayle Laakmann McDowell. A classic to prepare for the data structures and algorithms interviews. The author trains large and small tech companies on interview approaches – she also conducted this training while I was at Uber.
 
 [**Systems Design Interview**](https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119?ref=blog.pragmaticengineer.com) series by Alex Xu. Real-world cases studies to prepare for the systems design interview that senior and above engineers regularly need to clear at Big Tech and scaleups. Get it online; or [read my review](https://blog.pragmaticengineer.com/system-design-interview-an-insiders-guide-review/); or
