@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ee870cc78b1c137d",
+        "id": "b963269ecd71c8be",
         "type": "tabs",
         "children": [
           {
-            "id": "3a9a251a233b83fc",
+            "id": "0de914701d0946dd",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -181,11 +181,23 @@
       "bases:Create new base": false
     }
   },
-  "active": "3a9a251a233b83fc",
+  "active": "0de914701d0946dd",
   "lastOpenFiles": [
+    "Performance Management/OKRs.md",
+    "Performance Management/KPIs.md",
+    "Performance Management/North Star Metrics.md",
+    "Pasted image 20260808002007.png",
+    "Performance Management/Amplitude - Compass Chart.md",
+    "Performance Management/Performance Management.md",
+    "References/Blogs.md",
+    "References/Sources.md",
+    "Engineering Management/Engineering Management.md",
+    "Untitled",
+    "Product Management",
+    "Organizational Management",
+    "Performance Management",
     "Strategy/Tree of Jobs to be Done Framework.md",
     "Strategy/Strategy.md",
-    "References/Blogs.md",
     "References",
     "Project Management/Ultimate Collection of PRDs.md",
     "Strategy",
@@ -199,25 +211,13 @@
     "Communication",
     "Software Engineering/Software Engineering.md",
     "Career Development",
-    "Engineering Management/Engineering Management.md",
     "Software Engineering",
     "Software Architecture/Domain Driven Design (DDD).md",
-    "Engineering Management",
     "Software Architecture/ADR.md",
     "Software Architecture/C4 model.md",
     "Software Architecture/arc42.md",
     "Software Architecture/Software Architecture.md",
     "Software Architecture/Software Documentation.md",
-    "Readings/Refactoring Databases.md",
-    "Readings/Reading List.base",
-    "Readings/Reading List New book.md",
-    "Welcome.md",
-    "create a link.md",
-    "Software Architecture",
-    "Readings/Reading List/Applying DDD.md",
-    "Readings/Reading List/Airbyte Academy.md",
-    "Readings/Reading List/Agile Software Development Principles, Patterns, and Practices.md",
-    "Readings/Reading List/Advanced OOP.md",
-    "Readings/Reading List/Reading List.base"
+    "Readings/Refactoring Databases.md"
   ]
 }
