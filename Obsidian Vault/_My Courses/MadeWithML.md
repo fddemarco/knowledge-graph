@@ -2,12 +2,8 @@
 base: "[[Reading List.base]]"
 Category:
   - Course
-  - ML
-Author: Inria
+  - MLOps
+Author: ""
 Status: Coming up next
 ---
-## Notes
-
----
-
-- 
+Repo: https://github.com/GokuMohandas/Made-With-ML

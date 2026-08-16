@@ -11,3 +11,4 @@ Status: Completed
 ---
 
 - Demeter’s Law
+- Habla de los conceptos basicos de como escribir codigo: funciones cortas, nombres claros, como ordenar los metodos, etc.

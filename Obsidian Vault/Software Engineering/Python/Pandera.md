@@ -6,4 +6,4 @@ Category:
 Author: UnionOSS
 Status: Coming up next
 ---
-## Chapter 1
+Docs: https://github.com/unionai-oss/pandera

@@ -5,6 +5,12 @@ Category:
 Author: Me
 Status: Coming up next
 ---
+c4model
+Miro
+Lucid charts
+**excalidraw**
+diagrams.net
+
 - **Documenting Software Architectures: Views and Beyond 2nd Edition**
 
 Yes, there **are books**—both general and specialized—that **teach how to create these architecture diagrams** effectively. However, no single book covers *all* the diagram types exhaustively. Instead, you’ll find good resources by focusing on **architecture frameworks, diagramming languages**, and **system design practices**.

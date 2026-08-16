@@ -6,8 +6,4 @@ Category:
 Author: sci-kit learn
 Status: Coming up next
 ---
-## Notes
-
----
-
-- 
+Docs: https://scikit-learn.org/stable/supervised_learning.html

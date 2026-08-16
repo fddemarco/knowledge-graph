@@ -1,9 +1,9 @@
 ---
 base: "[[Reading List.base]]"
 Category:
-  - Course
-  - MLOps
-Author: ""
+  - ML
+Author: Inria
 Status: Coming up next
 ---
-## Chapter 1
+Link: https://skolar.probabl.ai/en/a/home;pa=0
+

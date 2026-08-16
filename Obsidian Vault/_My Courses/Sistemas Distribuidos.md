@@ -7,6 +7,12 @@ Category:
 Author: FIUBA
 Status: Completed
 ---
+Playlist: https://www.youtube.com/watch?v=P0a7PwRNLVU&list=PLA2i5ySS1-JuafCZXdKodhachgDH5zQSc&index=41&pp=gAQBiAQB
+
+https://c4model.com/
+https://zeromq.org/get-started/
+https://www.rabbitmq.com/tutorials
+
 ## 1st Class - Intro a la materia
 
 - Tendencias de hardware y software

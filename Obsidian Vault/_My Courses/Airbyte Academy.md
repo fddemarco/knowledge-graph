@@ -5,4 +5,5 @@ Category:
 Author: Airbyte
 Status: Coming up next
 ---
-## Chapter 1
+Link: https://airbyteacademy.thinkific.com/collections
+

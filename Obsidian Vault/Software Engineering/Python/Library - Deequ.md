@@ -5,4 +5,5 @@ Category:
 Author: AWS
 Status: Not started
 ---
-## Chapter 1
+Java: https://github.com/awslabs/deequ
+Python: https://github.com/awslabs/python-deequ

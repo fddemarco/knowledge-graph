@@ -9,6 +9,12 @@ Category:
 Author: FIUBA
 Status: Completed
 ---
+Playlist: [https://www.youtube.com/watch?v=Kyjdxncu3cI&list=PLA2i5ySS1-JtFERLzb3cS-mNclGwl8YTm](https://www.youtube.com/watch?v=Kyjdxncu3cI&list=PLA2i5ySS1-JtFERLzb3cS-mNclGwl8YTm)
+
+Repo: [https://github.com/ingenieria-del-software-2/ingenieria-del-software-2.github.io/tree/fee6758854b99fc5a6f6dff8b8f2fba5b58bb4d4](https://github.com/ingenieria-del-software-2/ingenieria-del-software-2.github.io/tree/fee6758854b99fc5a6f6dff8b8f2fba5b58bb4d4)
+
+Workshop de Backend: [https://github.com/fddemarco/backend-workshop](https://github.com/fddemarco/backend-workshop)
+
 ## Notes
 
 ---
