@@ -7,4 +7,4 @@ Category:
 Author: Nick Signh
 Status: Completed
 ---
-## Chapter 1
+El unico capitulo que vale la pena es el de ML. Repasa algoritmos interesantes, cuando se usa cada uno, trade-offs

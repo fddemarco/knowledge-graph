@@ -7,6 +7,8 @@ Category:
 Author: Daniel Vaughan
 Status: Completed
 ---
+En general, es un libro completo, bien escrito y facil de leer. Introduce conceptos simples sobre como estandarizar el proceso de toma de decisiones basado en metodos prescriptivos. La idea basica es modelar nuestro negocio mediante palancas, acciones y resultados. Las palancas son las decisiones que podemos tomar, las acciones la aplicaccion de dicha decision (ofrecer descuento o no ofrecer), y existe una relacion causal entre la accion y el resultado (si ofrezco descuento, gano o pierdo X plata). Desarrolla varios casos a lo largo del libro, aunque se centra mas que nada en Churn y CLTV. Me parecio un excelente libro para inciarse en el mundo de causalidad y toma de decisiones analiticas
+
 ## Economics, Behavioral Economics & Strategy
 
 - *Predictably Irrational* — Dan Ariely (Harper Perennial)

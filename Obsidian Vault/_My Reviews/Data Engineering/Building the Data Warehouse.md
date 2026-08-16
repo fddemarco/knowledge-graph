@@ -7,6 +7,7 @@ Category:
 Author: Bill Inmon
 Status: Completed
 ---
+Perdida total de tiempo. No recomiendo
 ## Chapter 8 - External Data
 
 One problem of external data is the **frequency of availability**. Unlike internally appearing data, there is no real fixed pattern of appearance for external data.

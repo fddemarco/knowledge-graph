@@ -6,6 +6,10 @@ Category:
 Author: ""
 Status: Completed
 ---
+[[Python]]
+https://packaging.python.org/en/latest/overview/
+https://packaging.python.org/en/latest/guides/tool-recommendations/
+
 ## Overview
 
 **Source Distributions. **Conceptually, a source distribution is an archive of the source code in raw form. Concretely, an **sdist **is a **.tar.gz archive **containing the source code plus an additional special file called PKG-INFO, which holds the project metadata. The presence of this file helps packaging tools to be more efficient by not needing to compute the metadata themselves. The PKG-INFO file follows the format specified in Core metadata specifications and is not intended to be written by hand.

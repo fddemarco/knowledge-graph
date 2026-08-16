@@ -7,4 +7,4 @@ Category:
 Author: Huyen C
 Status: Completed
 ---
-## Chapter 1
+No recuerdo mucho del libro. Creo que es un buen libro inicial de ML que cubre las bases conceptuales.

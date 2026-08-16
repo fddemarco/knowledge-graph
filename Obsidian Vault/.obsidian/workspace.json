@@ -8,16 +8,35 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d01e56f5e442abb4",
+            "id": "df437c297aeb1cef",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Software Engineering/Python/Python Packaging.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Python Packaging"
+            }
+          },
+          {
+            "id": "fa5a54c3e1a2c428",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_My Reviews/Data Engineering/Building the Data Warehouse.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Building the Data Warehouse"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -37,7 +56,7 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": true,
+                "autoReveal": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
@@ -181,44 +200,45 @@
       "bases:Create new base": false
     }
   },
-  "active": "d01e56f5e442abb4",
+  "active": "4457a6923c8d7d8c",
   "lastOpenFiles": [
-    "Software Architecture/Software Architecture.md",
-    "Software Architecture/ADR.md",
-    "Software Engineering/Logging.md",
+    "_My Reviews/Data Engineering/I heart Logs.md",
+    "_My Reviews/Machine Learning/Machine Learning Design Patterns.md",
+    "_My Reviews/Data Engineering/Designing Data Intensive Applications.md",
+    "_My Reviews/Data Architecture.md",
+    "_My Reviews/Data Engineering/Data lake architecture.md",
+    "_My Reviews/Testing/xUnit Test Patterns.md",
+    "_My Reviews/QE Pyhton.md",
+    "Software Engineering/Python/Pandera.md",
+    "_My Reviews/Pointblank.md",
+    "_My Reviews/Poetry Plugin Freeze.md",
+    "_My Reviews/Software Design/Agile Software Development Principles, Patterns, and Practices.md",
     "Software Engineering/Logging and Log Management.md",
-    "Accounting/Accounting for Developers.md",
-    "Accounting",
-    "Performance Management/OKRs.md",
-    "Performance Management/KPIs.md",
-    "Performance Management/North Star Metrics.md",
-    "Pasted image 20260808002007.png",
-    "Performance Management/Amplitude - Compass Chart.md",
-    "Performance Management/Performance Management.md",
-    "References/Blogs.md",
-    "References/Sources.md",
-    "Engineering Management/Engineering Management.md",
-    "Product Management",
-    "Organizational Management",
-    "Performance Management",
-    "Strategy/Tree of Jobs to be Done Framework.md",
-    "Strategy/Strategy.md",
-    "References",
-    "Project Management/Ultimate Collection of PRDs.md",
-    "Strategy",
-    "Project Management/Product Requirement Document.md",
-    "Career Development/Promotions.md",
-    "Career Development/Interviews.md",
-    "Career Development/Career Development.md",
-    "Project Management/Project Management.md",
-    "Project Management",
-    "Communication/Communication.md",
-    "Communication",
-    "Software Engineering/Software Engineering.md",
-    "Career Development",
-    "Software Engineering",
-    "Software Architecture/Domain Driven Design (DDD).md",
-    "Software Architecture/C4 model.md",
-    "Software Architecture/arc42.md"
+    "Software Engineering/Python/Python Packaging.md",
+    "Software Engineering/Python/Python.md",
+    "_My Reviews/Consulting/Flawless Consulting.md",
+    "Software Engineering/Python",
+    "_My Reviews/Testing",
+    "_My Reviews/Consulting",
+    "_My Reviews/Machine Learning/Designing Machine Learning Systems.md",
+    "_My Reviews/Software Design",
+    "_My Reviews/Machine Learning/Ace the Data Science Interview.md",
+    "_My Reviews/Machine Learning/Data Science for Business.md",
+    "_My Reviews/Machine Learning/The Hundred-Page Machine Learning Book.md",
+    "_My Reviews/Machine Learning/The Orange Book of Machine Learning.md",
+    "_My Reviews/Career development/Building a career in software engineering.md",
+    "_My Reviews/New book.md",
+    "_My Reviews/Machine Learning",
+    "_My Reviews/Data Engineering/Understanding ETL.md",
+    "_My Reviews/Data Engineering/Data pipelines pocket reference.md",
+    "_My Reviews/Understanding ETL 1.md",
+    "_My Reviews/Causal/Analytical Skills for AI and Data Science.md",
+    "_My Reviews/Data Engineering",
+    "_My Reviews/Causal",
+    "_My Reviews/Productivity",
+    "Untitled.canvas",
+    "Untitled.base",
+    "_My Reviews/Career development",
+    "Pasted image 20260808002007.png"
   ]
 }
