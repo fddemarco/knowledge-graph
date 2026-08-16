@@ -1,0 +1,11 @@
+---
+base: "[[Reading List.base]]"
+Category:
+  - ML
+Author: Standford AI
+Status: Not started
+---
+- [Repo](https://github.com/snorkel-team/snorkel)
+- [Platform](https://snorkel.ai/)
+
+The [Snorkel project](https://snorkelproject.org/) started at Stanford in 2015 with a simple technical bet: that it would increasingly be the **training data**, not the models, algorithms, or infrastructure, that decided whether a machine learning project succeeded or failed. Given this premise, we set out to explore the radical idea that you could bring mathematical and systems structure to the messy and often entirely manual process of training data creation and management, starting by empowering users to **programmatically label, build, and manage** training data.

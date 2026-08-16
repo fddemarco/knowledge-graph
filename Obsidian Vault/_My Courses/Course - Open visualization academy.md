@@ -1,8 +1,8 @@
 ---
 base: "[[Reading List.base]]"
 Category:
-  - ML
-Author: Standford AI
+  - DataViz
+Author: ""
 Status: Not started
 ---
-## Chapter 1
+URL: https://openvisualizationacademy.org/

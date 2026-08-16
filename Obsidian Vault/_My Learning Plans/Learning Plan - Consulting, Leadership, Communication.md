@@ -2,7 +2,7 @@
 base: "[[Reading List.base]]"
 Category:
   - Learning Path
-Author: ME
+Author: Me
 Status: Learning Path
 ---
 ## **Phase 1: Problem Solving & Consulting Fundamentals**

@@ -1,9 +1,9 @@
 ---
 base: "[[Reading List.base]]"
 Category:
-  - ML
-  - MLOps
+  - Guide
+  - Code Design
 Author: Google
 Status: Not started
 ---
-## Chapter 1
+URL: https://google.github.io/eng-practices/
