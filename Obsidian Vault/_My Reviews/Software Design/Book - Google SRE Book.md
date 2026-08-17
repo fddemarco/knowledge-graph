@@ -1,9 +1,8 @@
 ---
 base: "[[Reading List.base]]"
 Category:
-  - Management
   - CI/CD
-  - DevOps
+  - SRE
 Author: Google
 Status: Not started
 ---

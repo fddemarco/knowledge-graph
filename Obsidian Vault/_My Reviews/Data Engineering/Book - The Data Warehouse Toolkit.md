@@ -5,7 +5,7 @@ Category:
   - Databases
   - Data Modeling
 Author: Ralph Kimball
-Status: Not started
+Status: In Progress
 ---
 ## Notes
 

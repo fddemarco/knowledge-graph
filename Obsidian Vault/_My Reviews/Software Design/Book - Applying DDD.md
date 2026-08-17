@@ -1,8 +1,11 @@
 ---
 base: "[[Reading List.base]]"
 Category:
-  - Management
-Author: Grady Booch
+  - TDD
+  - DevOps
+  - System Design
+  - DDD
+Author: Jimmy Nilson
 Status: Not started
 ---
 ## Notes

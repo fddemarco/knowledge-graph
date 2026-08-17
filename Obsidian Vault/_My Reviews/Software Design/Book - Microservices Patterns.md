@@ -1,14 +1,7 @@
 ---
 base: "[[Reading List.base]]"
 Category:
-  - TDD
-  - DevOps
   - System Design
-Author: Jimmy Nilson
+Author: Chris Richardison
 Status: Not started
 ---
-## Notes
-
----
-
-- 

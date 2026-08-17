@@ -1,8 +1,9 @@
 ---
 base: "[[Reading List.base]]"
 Category:
-  - Management
-Author: Andrew Hunt & David Thomas
+  - Testing
+  - TDD
+Author: Steve Freeman & Nat Pryce
 Status: Not started
 ---
 ## Notes
