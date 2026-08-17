@@ -3,6 +3,7 @@ base: "[[Reading List.base]]"
 Rating: ⭐️
 Category:
   - CareerGrowth
+  - Productivity
 Author: Zeno Rocha
 Status: Completed
 ---

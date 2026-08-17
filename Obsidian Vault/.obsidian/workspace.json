@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_My Reviews/Data Engineering/Book - Data Mesh.md",
+                "file": "Strategy/Tree of Jobs to be Done Framework.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Book - Data Mesh"
+              "title": "Tree of Jobs to be Done Framework"
             }
           }
         ]
@@ -90,7 +90,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -199,39 +200,39 @@
       "bases:Create new base": false
     }
   },
-  "active": "551aa5e2bf65c409",
+  "active": "2b35748b6b34320b",
   "lastOpenFiles": [
-    "_My Reviews/Data Engineering/Book - The Data Warehouse Toolkit.md",
-    "_My Reviews/Software Design/Book - Refactoring Databases.md",
-    "_My Reviews/Software Design/Book - 99 Bottles of OOP.md",
-    "_My Reviews/Software Design/Book - Managing the developments of large software systems.md",
-    "_My Reviews/Software Design/Book - Accelerate.md",
-    "_My Reviews/Software Design/Book - Working Effectively with Legacy Code.md",
-    "_My Reviews/Software Design/Book - Rapid Development.md",
-    "_My Reviews/Software Design/Book - Applying DDD.md",
-    "_My Reviews/Software Design/Book - Object Oriented Software Engineering.md",
-    "_My Reviews/Software Design/Book - Object Solutions.md",
-    "_My Reviews/Software Design/Book - 97 Things Every Cloud Engineer Should Know.md",
-    "_My Reviews/Software Design/Book - Head First Software Development.md",
-    "_My Reviews/Software Design/Book - Microservices Patterns.md",
-    "_My Reviews/Software Design/Book - Building Microservices.md",
-    "_My Reviews/Software Design/Book - The Pragmatic Programmer - From Journeyman to Master.md",
-    "_My Reviews/Software Design/Book - Growing OO Software by Tests.md",
-    "_My Reviews/Software Design/Book - The UML Reference Manual.md",
-    "_My Reviews/Software Design/The Art of Agile Development.md",
-    "_My Reviews/Software Design/Book - Release it!.md",
-    "_My Reviews/Software Design/Book - Google SRE Book.md",
+    "Software Platforms/Software Platform - Quarto.md",
+    "Software Architecture/ADR.md",
+    "Project Management/Project Management.md",
+    "Project Management/Resources - Collection of PRDs.md",
+    "Project Management/Product Requirement Document.md",
+    "Performance Management/North Star Metrics.md",
+    "Performance Management/Performance Management.md",
+    "Performance Management/OKRs.md",
+    "Performance Management/KPIs.md",
+    "Performance Management/Amplitude - Compass Chart.md",
+    "Machine Learning/Resources - Online Machine Learning.md",
+    "Machine Learning/Expert Guides - INNOQ MLOps.md",
+    "Engineering Management/Engineering Management.md",
+    "Communication/Communication.md",
+    "Career Development/Promotions.md",
+    "Career Development/Interviews.md",
+    "Career Development/Career Development.md",
+    "Accounting/Accounting for Developers.md",
+    "_My Certifications/Certification - GCP Data Engineer.md",
+    "_My Certifications/Certification - AWS Solutions Architect Associate.md",
+    "_My References/Blog - Edo van Royen.md",
+    "_My References/Company Handbook - The Gitlab Handbook.md",
+    "_My References/University - Standford Online.md",
+    "_My References/Index - Sources.md",
+    "_My References/Foundation - Linux Foundation AI&DataOML.md",
+    "_My References/Blog - Netflix Research.md",
     "_My Bases/Reading List.base",
     "_My Bases",
     "Books.base",
-    "Software Engineering/Python/Library - Pointblank.md",
-    "Accounting/Accounting for Developers.md",
     "Untitled 1.canvas",
-    "Software Engineering/Python/Library - riverml.md",
     "Untitled.canvas",
-    "Software Engineering/Python/Library - Tenacity.md",
-    "Software Platforms/Platform - Quarto.md",
-    "_My Reviews/Flit.md",
     "Software Engineering/Software Infrastructure",
     "_My Guides",
     "Software Platforms",

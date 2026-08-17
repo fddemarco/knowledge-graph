@@ -9,7 +9,7 @@ Category:
 Author: Martin Kleppman
 Status: Completed
 ---
-Este es un buen libro de Bases de Datos. Es muy teorico, poco practico.
+BEste es un buen libro de Bases de Datos. Es muy teorico, poco practico.
 
 ## Chapter 1 - Reliable, Scalable, and Maintainable Applications
 
