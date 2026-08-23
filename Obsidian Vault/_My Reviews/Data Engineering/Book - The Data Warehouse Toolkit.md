@@ -7,8 +7,6 @@ Category:
 Author: Ralph Kimball
 Status: In Progress
 ---
-## Notes
+## Chapter 7 - Accounting
 
----
-
-- 
+Discute como modelar los procesos de contabilidad. Lo mas importante es que introduce el concepto de "Hierarchy Bridge Table" para gestionar jerarquias de profundidad variable.
