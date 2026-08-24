@@ -1,4 +1,5 @@
-[[Data Modeling]]
+[[Dimension Tables]]
+[[Book - The Data Warehouse Toolkit]] - Chapter 7 - Accounting
 
 Imagine your enterprise consists of 13 organizations with the following rollup structure. Each of these organizations has its own budget, commitments, and payments. For a single organization, you can request a specific budget for an account with a simple join from the organization dimension to the fact table. But you also want to roll up the budget across portions of the tree or even all the tree. **Ragged Hierarchies** of indeterminate depth are difficult to model and query in a relational database.
 

@@ -4,6 +4,22 @@ The goal of CRM is to maximize relationships with your customers over their life
 
 In many organizations, the view of the customer varies depending on the product line business unit, business function, and/or geographic location. Each group may use different customer data in different ways with different results. The evolution from the existing silos to a more integrated perspective obviously requires organizational commitment. CRM is like a stick of dynamite that knocks down the silo walls. It requires the right integration of business processes, people resources, and application technology to be effective.
 
+### Behavior Tag Time Series
+
+One popular approach for scoring and profiling customers looks at the **recency (R), frequency (F), and intensity (I)** of the customer’s behavior. These are known as the RFI measures; sometimes intensity is replaced with **monetary** (M), so it’s also known as RFM. Recency is how many days has it been since the customer last ordered or visited your site. Frequency is how many times the customer has ordered or visited, typically in the past year. And intensity is how much money the customer has spent over the same time period. When dealing with a large customer base, every customer’s behavior can be modeled as a point in an RFI cube.
+
+If you have millions of points in the cube, it becomes difficult to see meaningful clusters of these points. This is a good time to ask a data mining professional where the meaningful clusters are. The data mining professional may come back with a list of behavior tags like the following, which is drawn from a slightly more complicated scenario that includes credit behavior and returns:
+
+- A: High volume repeat customer, good credit, few product returns
+- B: High volume repeat customer, good credit, many product returns
+- C: Recent new customer, no established credit pattern
+- D: Occasional customer, good credit
+- E: Occasional customer, poor credit
+- F: Former good customer, not seen recently
+- G: Frequent window shopper, mostly unproductive
+- H: Other
+
+
 ## References
 
 - [[Book - The Data Warehouse Toolkit]] - Chapter 8: Customer Relationship Management
