@@ -1,5 +1,5 @@
 [[Dimension Tables]]
-[[Book - The Data Warehouse Toolkit]] - Chapter 7 - Accounting
+[[Book - The Data Warehouse Toolkit]]
 
 Imagine your enterprise consists of 13 organizations with the following rollup structure. Each of these organizations has its own budget, commitments, and payments. For a single organization, you can request a specific budget for an account with a simple join from the organization dimension to the fact table. But you also want to roll up the budget across portions of the tree or even all the tree. **Ragged Hierarchies** of indeterminate depth are difficult to model and query in a relational database.
 
@@ -166,6 +166,15 @@ erDiagram
 ```
 
 You must be careful when using the map bridge table to constrain the organization dimension to a single row, or else you risk overcounting the children and grandchildren in the tree. For example, if instead of a constraint such as “Node Organization Number = 1” you constrain on “Node Organization Location = California”, you would have this problem.
+
+There are several **disadvantages** to this approach. The bridge table is somewhat challenging to build, plus it contains many rows, so query performance can suffer. The BI user experience is complicated for ad hoc queries, although we’ve seen analysts effectively use it. Finally, if users want to aggregate information up rather than down a management chain, the join paths must be
+reversed.
+
+The situation is further complicated if you want to **track employee profile changes in conjunction with the bridge table**. If the manager and employee reflect employee profiles with type 2 changes, the bridge table will experience rapid growth, especially when senior management profile changes cause new keys to ripple across the organization.
+
+You could use **durable natural keys** in the bridge table, instead of the employee keys which capture type 2 profile changes. Limiting the relationship to the management hierarchy’s current profiles is one thing. However, if the business wants to retain a history of employee/manager rollups, you need to embellish the bridge table with effective and expiration dates that capture the effective timespan for each employee/manager relationship. The propagation of new rows in this bridge table using durable keys is **substantially reduced** because new rows are added when reporting relationships change, not when any type 2 employee attribute is modified.
+
+A bridge table built on durable keys is easier to manage, but quite **challenging to navigate**, especially given the need to associate the relevant organizational structures with the event dates in the fact table. Given the complexities, the bridge table should be buried within a canned BI application for all but a small subset of power BI users.
 
 ## References
 
