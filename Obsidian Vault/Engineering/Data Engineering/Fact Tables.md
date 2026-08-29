@@ -151,3 +151,35 @@ Timespan fact tables transform a sequence of transactions into continuous time i
 Using the pair of date/time stamps requires a two-step process whenever a new transaction row is entered. In the first step, the end effective date/time stamp of the most current transaction must be set to a fictitious date/time far in the future. Although it would be semantically correct to insert NULL for this date/time, nulls become a headache when you encounter them in constraints because they can cause a database error when you ask if the fi eld is equal to a specific value. By using a fictitious date/time far in the future, this problem is avoided.
 
 In the second step, after the new transaction is entered into the database, the ETL process must retrieve the previous transaction and set its end effective date/time to the date/time of the newly entered transaction. Although this two-step process is a noticeable cost of this twin date/time approach, it is a classic and desirable trade-off between extra ETL overhead in the back room and reduced query complexity in the front room.
+
+## Measure Type Dimension for Sparse Facts
+
+As designers, it is tempting to strive for a more standardized framework that could be extended to handle data variability. For example, you could potentially handle the variability of lab test results with a measurement type dimension describing what the fact row means, or in other words, what the generic fact represents. The unit of measure for a given numeric entry is found in the associated measurement type dimension row, along with any additivity restrictions.
+
+```mermaid
+erDiagram
+    LAB_TEST_RESULT_FACTS {
+        string Order_Date_Key_FK
+        string Test_Date_Key_FK
+        string Patient_Key_FK
+        string Physician_Key_FK
+        string Lab_Test_Key_FK
+        string Lab_Test_Measurement_Type_Key_FK
+        string Observed_Test_Result_Value
+    }
+
+    LAB_TEST_MEASUREMENT_TYPE_DIMENSION {
+        string Lab_Test_Measurement_Type_Key_PK
+        string Lab_Test_Measurement_Type_Description
+        string Lab_Test_Measurement_Type_Unit_of_Measure
+    }
+
+    LAB_TEST_MEASUREMENT_TYPE_DIMENSION ||--o{ LAB_TEST_RESULT_FACTS : ""
+```
+
+This approach is **superbly flexible**; you can add new measurement types simply by adding new rows in the measurement type dimension, not by altering the structure of the fact table. This approach also eliminates the nulls in the classic positional fact table design because a row exists only if the measurement exists.
+
+However, there are trade-offs. Using a measurement type dimension may generate lots of new fact table rows because the grain is “one row per measurement per event” rather than the more typical “one row per event.” If a lab test results in 10 numeric measurements, there are now 10 rows in the fact table rather than a single row in the classic design. For **extremely sparse** situations, such as clinical laboratory or manufacturing test environments, this is a reasonable compromise. However, as the density of the facts grows, you end up spewing out too many fact rows. At this point you no longer have sparse facts and should return to the classic fact table design with fixed columns.
+
+Moreover, this measurement type approach may complicate BI data access applications. In the relational star schema, combining two numbers that were captured as part of a single event is more difficult with this approach because now you must fetch two rows from the fact table. SQL likes to perform arithmetic functions within a row, not across rows. In addition, you must be careful not to mix incompatible amounts in a calculation because all the numeric measures reside in a single amount column.
+
