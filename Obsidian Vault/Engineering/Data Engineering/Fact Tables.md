@@ -3,7 +3,57 @@
 
 A fact table represents the robust set of many-to-many relationships among dimensions; it records the collision of dimensions at a point in time and space. Each **fact table** typically has 5 to approximately 20 foreign key columns, followed by one to potentially several dozen numeric, continuously valued, preferably **additive facts**. The facts can be regarded as measurements taken at the intersection of the dimension key values. A dimension table describes a static entity. A fact table records an event or relationship across **multiple entities**.
 
-## Accumulating snapshot
+## Fact Table Types
+
+### Transaction Fact Table
+
+The transaction fact table records individual transactions at the most atomic level of detail. Each row transactional fact table represents a single event, such as a sales transaction or an order fulfillment event, making these fact tables ideal for detailed analysis of daily business activities.
+
+Characteristics:
+
+- Captures data at a granular level.
+- Stores additive measures such as sales quantity or sales revenue.
+- A primary key is often a composite key consisting of foreign keys from dimension tables like date, product, and customer.
+- Allows easy tracking of individual transactions for reporting purposes.
+
+Example: A sales fact table that records data warehouses each sales transaction, including the date, product sold, and amount.
+
+### Periodic Snapshot Fact Table
+
+A full periodic snapshot table or fact table summarizes business activities over a defined period, such as daily, weekly, or monthly. Unlike transaction fact tables, periodic snapshot tables do not store individual transactions but provide a performance summary at regular intervals.
+
+**Characteristics**:
+
+- Useful for [trend analysis](https://www.sprinkledata.com/blogs/mastering-trend-analysis-a-comprehensive-guide-to-uncover-insights).
+- Stores semi-additive measures, such as account balances that can be summed over some dimensions but not others.
+- Ideal for trend analysis over time (e.g., daily sales volume or inventory levels at the end of each day).
+
+Example: A snapshot fact table that shows the total sales revenue and the number of orders at the end of each month.
+
+### Accumulating snapshot
+
+https://www.kimballgroup.com/2011/11/design-tip-140-is-it-a-dimension-a-fact-or-both/
+
+For most subject areas, it’s pretty easy to identify the major dimensions: Product, Customer Account, Student, Employee, and Organization are all easily understood as descriptive dimensions. A store’s sales, a telecommunication company’s phone calls, and a college’s course registrations are all clearly facts.
+
+However, for some subject areas, it can be challenging – especially for the new dimensional modeler – to identify whether an entity is a dimension or a fact. For example, an **insurance company’s claims** processing unit wants to analyze and report on their open claims. “Claim” feels like a dimension, but at the same time, it can behave like a fact table. A similar situation arises with software companies with **extended sales cycles**: is the sales opportunity a dimension, a fact, or both?
+
+In most cases, the design puzzle is solved by recognizing that the business event you’re trying to represent in the fact table is actually a long-lived process or lifecycle. Often, the business users are most interested in seeing the current state of the process. A table with one row per process – one row per claim or sales opportunity, for example – sounds like a dimension table. But if you distinguish between the entity (claim or sales opportunity) and the process (claim settlement or sales pipeline), it becomes clearer. We need a fact table to measure the process. And many dimension tables to describe the attributes of the entity measured in that process.
+
+This type of schema is implemented as an accumulating snapshot. The accumulating snapshot is less common than transactional and periodic snapshot fact tables. The grain of this type of fact table is one row per process; it has many roles of the date dimension; and the fact table rows are updated multiple times over the life of the process (hence the name accumulating snapshot). 
+
+Many of the core dimensions of an accumulating snapshot schema are easy to identify, but there are some challenges to these designs. Long-lived processes tend to have a lot of little flags and codes from the source system that signal various statuses and conditions in the process. These are great candidates for junk dimensions. Expect your accumulating snapshot schema to have several junk dimensions.
+
+An **accumulating snapshot fact table** tracks the progress of events that have a defined life cycle, such as the order fulfillment process. These periodic snapshot fact tables capture the evolving state of a process from start to finish by updating rows as the process advances through its stages.
+
+**Characteristics**:
+
+- Useful for tracking processes with multiple stages.
+- Semi-additive measures are typically used.
+- The same row is updated multiple times as the process progresses, with foreign keys tracking each stage.
+- Accumulative snapshot tables capture business processes such as order processing, where each row represents an order moving through stages like "order received", "order shipped", and "order completed".
+
+**Example**: An accumulating snapshot fact table that tracks an order through the stages of processing, shipping, and delivery.
 
 Accumulating snapshot fact tables depend on a series of dates that implement the “standard scenario” for the pipeline process. For order fulfillment, you may have the steps of order created, order shipped, order delivered, order paid, and order returned as standard steps in the order scenario. This kind of design is successful when 90 percent or more of the orders progress through these steps (hopefully without the return) without any unusual exceptions.
 
@@ -11,7 +61,54 @@ But if an occasional situation deviates from the standard scenario, you don’t 
 
 The way to describe unusual departures from the standard scenario is to add a delivery status dimension to the accumulating snapshot fact table. For the case of the weird delivery scenario, you tag this order fulfillment row with the status Weird. Then if the analyst wants to see the complete story, the analyst can join to a companion transaction fact table through the order number and line number that has every step of the story. The transaction fact table joins to a transaction dimension, which indeed has Flat Tire, Damaged Shipment, and Lawsuit as transactions. Even though this transaction dimension will grow over time with unusual entries, it is well bounded and stable.
 
+#### Less predictable pipelines
+
+Accumulating snapshot fact tables are typically appropriate for predictable workflows with well-established milestones. They usually have five to 10 key milestone dates representing the pipeline’s start, completion, and key events in between. However, sometimes workflows are less predictable. They still have a definite start and end date, but the milestones in between are numerous and less stable. Some occurrences may skip over some intermediate milestones, but there’s no reliable pattern.
+In this situation, the first task is to identify the key dates that link to role-playing date dimensions. These dates represent the most important milestones. The start and end dates for the process would certainly qualify; in addition, you should consider other commonly occurring critical milestones. These dates (and their associated dimensions) will be used extensively for BI application filtering. However, if the number of additional milestones is both voluminous and unpredictable, they can’t all be handled as additional date foreign keys in the fact table.
+
+Typically, business users are more interested in the lags between these milestones, rather than filtering or grouping on the dates themselves. If there were a total of 20 potential milestone events, there would be 190 potential lag durations: event A-to-B, A-to-C, … (19 possible lags from event A), B-to-C, … (18 possible lags from event B), and so on. Instead of physically storing all possible lag metrics, you can get away with just storing 19 of them and then calculate the others. Because every pipeline occurrence starts by passing through milestone A, which is the workflow begin date, you could store all 19 lags from the anchor event A and then calculate the other variations. For example, if you want to know the lag from B-to-C, take the A-to-C lag value and subtract the A-to-B lag. If there happens to be a null for one of the lags involved in a calculation, then the result also needs to be null because one of the events never occurred. But such a null result is handled gracefully if you are counting or averaging that lag across a number of claim rows.
+
+### Timespan Accumulating Snapshot
+
+https://www.kimballgroup.com/2012/05/design-tip-145-time-stamping-accumulating-snapshot-fact-tables/
+
+The accumulating snapshot does a great job of telling us the pipeline’s current state, but it glosses over the intermediate states. For example, a claim may move in and out of states multiple times: opened, denied, protested, re-opened, re-closed. The accumulating snapshot is hugely valuable, but there are several things that it cannot do:
+
+- It can’t tell us the details of when and why the claim looped through states multiple times.
+- We can’t recreate our “book of business” at any arbitrary date in the past.
+
+For example, a claim can move in and out of various states such as opened, denied, closed, disputed, opened again, and closed again. The claim transaction fact table will have separate rows for each of these events, but it doesn’t accumulate metrics across transactions; trying to re-create the evolution of a workflow from these transactional events would be a nightmare. Meanwhile, a classic accumulating snapshot doesn’t allow you to re-create the claim workflow at any arbitrary date in the past.
+
+To solve both of these problems, we’ll need two fact tables. A transaction fact table captures the details of individual state changes. Then we’ll add effective and expiration dates to the accumulating snapshot fact table to capture its history.
+
+The transaction fact table is straightforward. We often pair the accumulating snapshot fact table with a transaction fact table that contains a row for each state change. Where the accumulating snapshot has **one row per pipeline process** such as a claim, the transaction fact table has **one row per event**. Depending on your source systems, it’s common to build the transaction fact table first, and derive the accumulating snapshot from it.
+
+Now let’s turn our attention to the timespan accumulating snapshot fact table. First of all, not everyone needs to bother with retaining these time stamped snapshots. For most organizations, a standard accumulating snapshot representing the current state of the pipeline, combined with the transaction fact table to show the event details, is ample. However, we’ve worked with several organizations that need to understand the evolution of a pipeline. While it’s technically possible to do that from the transaction data, it’s not child’s play.
+
+One solution to the historical pipeline tracking requirement is to combine the accumulating snapshot with a **periodic snapshot**: snap a picture of the pipeline at a regular interval. This brute force method is overkill for pipelines that are relatively long in overall duration, but change infrequently. What works best in this case is to add effective and expiration change tracking to the accumulating snapshot. Here’s how it works:
+
+- Design a standard accumulating snapshot fact table.
+- Instead of updating each row as it changes state, add a new row. Our recent designs have been at the daily grain: add a new row to the fact table any day in which something about that pipeline (e.g., claim, sales process, or drug adverse reaction) has changed.
+- You need some additional metadata columns, similar to a type 2 dimension:
+    - snapshot start date: the date this row became effective.
+    - snapshot end date: the date this row expired, updated when a new row is added.
+    - snapshot current flag: updated when we add a new row for this pipeline occurrence.
+
+Most users are only interested in the current view, i.e., a standard accumulating snapshot. You can meet their needs by defining a view (probably an indexed or materialized view) that filters the historical snapshot rows based on snapshot current flag. Alternatively, you may choose to instantiate a physical table of current rows at the end of each day’s ETL. The minority of users and reports who need to look at the pipeline as of any arbitrary date in the past can do so easily by filtering on the snapshot start and end  
+dates.
+
+The timespan accumulating snapshot fact table is slightly more complicated to maintain than a standard accumulating snapshot, but the logic is similar. Where the accumulating snapshot will update a row, the time stamped snapshot updates the row formerly-known-as-current and inserts a new row. The big difference between the standard and time stamped accumulating snapshots is the fact table row count. If an average claim is changed on twenty days during its life, the time stamped snapshot will be twenty times bigger than the standard accumulating snapshot. Take a look at your data and your business’s requirements to see if it makes sense for you. In our recent designs, we’ve been pleasantly surprised by how efficient this design is. Although a few problematic pipeline occurrences were changed hundreds of times, the vast majority were handled and closed with a modest number of changes.
+
 ## Factless Fact Table
+
+A **factless fact table** contains only foreign keys from related dimension tables and no numerical or quantitative measures. These tables are used to capture the many-to-many relationships between dimensions or to track events affiliate dimensions that don’t involve any numeric data but are important for analysis.
+
+**Characteristics**:
+
+- No additive measures; contains only foreign keys.
+- Useful for tracking occurrences of events such as student attendance, promotional activities, or shipping delays.
+
+**Example**: A fact table that records [data analyst](https://www.sprinkledata.com/blogs/data-analyst-vs-data-scientist-an-in-depth-comparison-between-data-professionals) the participation of students in classes without recording any quantitative measures.
 
 **Events** are modeled as fact tables containing a series of keys, each representing a participating dimension in the event. Event tables sometimes have no variable measurement facts associated with them and hence are called factless fact tables.
 

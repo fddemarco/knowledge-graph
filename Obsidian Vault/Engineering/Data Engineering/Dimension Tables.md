@@ -117,7 +117,7 @@ One of the compromises associated with mini-dimensions is the need to band attri
 
 Most organizations find these banded attribute values support their routine analytic requirements, however there are two situations in which banded values may be inadequate. First, **data mining analysis** often requires discrete values rather than fixed bands to be effective. Secondly, a limited number of **power analysts** may want to analyze the discrete values to determine if the bands are appropriate. In this case, you still maintain the **banded value mini-dimension attributes** to support consistent day-to-day analytic reporting but also store the key discrete numeric values as **facts in the fact table**. Finally, if needed, the current profitability range or score could be included in the account dimension where any changes are handled by deliberately overwriting the **type 1 attribute**. 
 
-## Supertypes and Subtypes
+## Supertypes and Subtypes Dimensions
 
 Business users typically require two different perspectives that are difficult to present in a single fact table. The first perspective is the **global view**, including the ability to slice and dice all accounts simultaneously, regardless of their product type. This global view is needed to plan appropriate customer relationship management cross-sell and up-sell strategies against the aggregate customer/household base spanning all possible products. In this situation, you need the single **supertype fact table** that crosses all the lines of business to provide insight into the complete account portfolio. Note, however, that the supertype fact table can present only a **limited number of facts** that make sense for virtually every line of business. You cannot accommodate incompatible facts in the supertype fact table because there may be several hundred of these facts when all the possible account types are considered. Similarly, the supertype product dimension must be restricted to the **subset of common product attributes**.
 
@@ -126,6 +126,10 @@ The second perspective is the **line-of-business view** that focuses on the in-d
 The keys of the **subtype** account dimensions are the same keys used in the **supertype** account dimension, which contains all possible account keys. For example, if the bank offers a “$500 minimum balance with no per check charge” checking account, this account would be identified by the same surrogate key in both the supertype and subtype checking account dimensions. **Each subtype account dimension is a shrunken conformed dimension with a subset of rows from the supertype account dimension table; each subtype account dimension contains attributes specific to a particular account type.**
 
 This supertype/subtype design technique applies to any business that offers **widely varied products through multiple lines of business**. If you work for a technology company that sells hardware, software, and services, you can imagine building supertype sales fact and product dimension tables to deliver the global customer perspective. The supertype tables would include all facts and dimension attributes that are common across lines of business. The supertype tables would then be supplemented with schemas that do a deep dive into subtype facts and attributes that vary by business. 
+
+### Shrunken and rollup dimensions
+
+Shrunken dimensions are conformed dimensions that are a _subset_ of rows and /or columns of a base dimension. _Shrunken rollup_ dimensions are required when constructing aggregate fact tables. They are also necessary for business processes that naturally capture data at a higher level of granularity, such as a forecast by month and brand (instead of the more atomic date and product associated with sales data). Another case of conformed dimension subsetting occurs when two dimensions are at the same level of detail, but one represents only a subset of rows.
 
 ## Hot Swappable Dimensions
 
