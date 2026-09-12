@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Engineering/Data Engineering/Data Quality.md",
+                "file": "Engineering/Software Engineering/SOPS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Data Quality"
+              "title": "SOPS"
             }
           }
         ],
@@ -231,8 +231,12 @@
   },
   "active": "5f728407a2735f9d",
   "lastOpenFiles": [
-    "Engineering/Data Engineering/Dimension Tables.md",
+    "Engineering/Software Engineering/Age.md",
+    "Engineering/Software Engineering/SOPS.md",
+    "Engineering/Software Engineering/Git.md",
+    "Engineering/Software Engineering/DAX.md",
     "Engineering/Data Engineering/Data Quality.md",
+    "Engineering/Data Engineering/Dimension Tables.md",
     "Engineering/Software Engineering/Java/Apache Hop.md",
     "Engineering/Software Engineering/Logging.md",
     "Engineering/Software Engineering/Java",
@@ -247,7 +251,6 @@
     "_My References/Online Book - DAX Patterns.md",
     "_My References/Company Handbook - The Gitlab Handbook.md",
     "Engineering/Data Engineering/Data Source - Clickstream.md",
-    "Engineering/Software Engineering/DAX.md",
     "Engineering/Software Engineering/Google Engineering Practices.md",
     "Engineering/Software Platforms/Software Platform - Power BI.md",
     "_My Learning Plans/Learning Plan - Business Analyst.md",
@@ -255,9 +258,6 @@
     "Engineering/Software Engineering/Python/Library - Data Flint.md",
     "Engineering/Software Engineering/Python/Library - Data Version Control.md",
     "Engineering/Software Engineering/Python/Library - Dataframely.md",
-    "Engineering/Software Engineering/Python/Library - PySpark.md",
-    "Engineering/Data Engineering/Remodeling Existing Data Structures.md",
-    "Engineering/Data Engineering/Ragged Hierarchies.md",
     "Business Analyst/Enterprise Systems",
     "Business Analyst",
     "Engineering",
