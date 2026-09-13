@@ -90,3 +90,20 @@ database:
 ```
 
 rather than an opaque encrypted blob.
+
+## Configuration
+
+Create a .sops.yaml file with your age public key. This file must be explicitly have a .yaml extension, as .yml extension is not supported. 
+
+```yaml
+creation_rules:
+  - path_regex: \.env$
+    age: age1abc123...
+```
+
+To retrieve your public key, run the following command
+
+```sh
+age-keygen -y <path to your keys>
+```
+

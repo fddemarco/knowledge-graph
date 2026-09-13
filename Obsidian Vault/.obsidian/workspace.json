@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Engineering/Software Engineering/SOPS.md",
+                "file": "Engineering/Software Engineering/Age.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SOPS"
+              "title": "Age"
             }
           }
         ],
@@ -231,8 +231,8 @@
   },
   "active": "5f728407a2735f9d",
   "lastOpenFiles": [
-    "Engineering/Software Engineering/Age.md",
     "Engineering/Software Engineering/SOPS.md",
+    "Engineering/Software Engineering/Age.md",
     "Engineering/Software Engineering/Git.md",
     "Engineering/Software Engineering/DAX.md",
     "Engineering/Data Engineering/Data Quality.md",

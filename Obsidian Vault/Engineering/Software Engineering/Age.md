@@ -13,6 +13,17 @@
 - **Private key** → used to decrypt; must be kept secret.
 ```
 
-you can put that in `.sops.yaml` and commit it. Your private key stays on your machine (or securely backed up elsewhere).
 
 The main reason to use **age instead of something like GPG** is that age was designed to be **simple, modern, and easy to use**, particularly for encrypting files and secrets.
+
+You can create a new pair of keys by running the following command:
+
+```sh
+age-keygen -o <path to your keys>
+```
+
+You can read your existing keys by running the following command:
+
+```sh
+age-keygen -y <path to your keys>
+```
