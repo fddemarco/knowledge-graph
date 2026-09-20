@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Engineering/Data Engineering/Dimension Tables.md",
+                "file": "Engineering/Data Engineering/Dimensional Modeling - Dimension Tables.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Dimension Tables"
+              "title": "Dimensional Modeling - Dimension Tables"
             }
           }
         ]
@@ -173,21 +173,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Welcome.md",
+                "file": "Engineering/Data Engineering/Dimensional Modeling - Dimension Tables.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Welcome"
+              "title": "Outline"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -202,10 +202,14 @@
   },
   "active": "5f728407a2735f9d",
   "lastOpenFiles": [
+    "Engineering/Data Engineering/Ragged Hierarchies.md",
+    "Engineering/Data Engineering/Dimensional Modeling - Dimension Tables.md",
     "Engineering/Data Engineering/Dimensional Modeling.md",
-    "Engineering/Data Engineering/Fact Tables.md",
-    "Engineering/Data Engineering/Dimension Tables.md",
+    "Engineering/Data Engineering/Dimensional Modeling - Fact Tables.md",
+    "Engineering/Data Engineering/Big Data.md",
+    "Engineering/Data Engineering/Remodeling Existing Data Structures.md",
     "Engineering/Data Engineering/Data Quality.md",
+    "Engineering/Data Engineering/Conducting Dimensional Modeling Design Reviews.md",
     "Engineering/Software Engineering/pass + pass-otp.md",
     "Engineering/Software Engineering/Git.md",
     "Engineering/Data Engineering/Naming Conventions.md",
@@ -221,14 +225,10 @@
     "Engineering/Software Platforms/Data Integration Engine - Meltano.md",
     "Engineering/Software Platforms/Data Management Platform - Qlik.md",
     "Engineering/Software Platforms/Data Management Platform - Informatica.md",
-    "Engineering/Data Engineering/Conducting Dimensional Modeling Design Reviews.md",
     "_My References/Online Book - DAX Patterns.md",
     "_My References/Company Handbook - The Gitlab Handbook.md",
     "Engineering/Data Engineering/Data Source - Clickstream.md",
     "Engineering/Software Engineering/Google Engineering Practices.md",
-    "Engineering/Software Platforms/Software Platform - Power BI.md",
-    "_My Learning Plans/Learning Plan - Business Analyst.md",
-    "Engineering/Software Engineering/Python/Library - Data Flint.md",
     "Business Analyst/Enterprise Systems",
     "Business Analyst",
     "Engineering",
