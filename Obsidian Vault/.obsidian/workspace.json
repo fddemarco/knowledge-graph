@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_My Courses/Academy - DLT Hub.md",
+                "file": "_My Courses/Course - AWS Redshift Premier.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Academy - DLT Hub"
+              "title": "Course - AWS Redshift Premier"
             }
           }
         ]
@@ -173,7 +173,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_My Courses/Academy - DLT Hub.md",
+                "file": "_My Courses/Course - AWS Redshift Premier.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -202,8 +202,9 @@
   },
   "active": "5f728407a2735f9d",
   "lastOpenFiles": [
-    "Engineering/Software Engineering/Python/Library - dlt.md",
     "_My Courses/Academy - DLT Hub.md",
+    "_My Courses/Course - AWS Redshift Premier.md",
+    "Engineering/Software Engineering/Python/Library - dlt.md",
     "Untitled.md",
     "_My Reviews/Data Engineering/Book - The Data Warehouse Toolkit.md",
     "Engineering/Data Engineering/Dimensional Modeling - Dimension Tables.md",
@@ -228,7 +229,6 @@
     "Engineering/Software Platforms/Event Steaming Platform - Kafka.md",
     "Engineering/Software Platforms/Data Integration Engine - Meltano.md",
     "Engineering/Software Platforms/Data Management Platform - Qlik.md",
-    "Engineering/Software Platforms/Data Management Platform - Informatica.md",
     "Business Analyst/Enterprise Systems",
     "Business Analyst",
     "Engineering",

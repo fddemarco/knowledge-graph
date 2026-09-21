@@ -64,6 +64,15 @@ dataset = another_pipeline.dataset()
 dataset.pokemon.df()
 ```
 
+**DuckDB Connection**
+Start a connection to your database using a native `duckdb` connection and see which tables were generated:
+
+```python
+import duckdb
+
+with duckdb.connect(f"{pipeline.pipeline_name}.duckdb") as conn:
+    conn.sql(f"SELECT * FROM {pipeline.dataset_name}.<table_name>").pl() # fetch_arrow_table(), show()
+```
 ## Resources and Sources
 A better way to represent the *pokemon* table is to wrap it in the `@dlt.resource` decorator which denotes a logical grouping of data within a data source, typically holding data of similar structure and origin:
 
@@ -170,6 +179,22 @@ new_pipeline = dlt.pipeline(
 # Run the pipeline
 load_info = new_pipeline.run(all_data())
 print(load_info)
+
+# Using dataset API
+data = pipeline.dataset().table("dlt_hub_repos").arrow()
+
+# Using sql_client API
+with pipeline.sql_client() as sql_client:
+    with sql_client.execute_query(
+	    f"SELECT * FROM {pipeline.dataset_name}.dlt_hub_repos"
+	) as cursor:
+        data = cursor.arrow()
+
+# Using Database connection
+import duckdb
+
+with duckdb.connect(f"{pipeline.pipeline_name}.duckdb") as conn:
+    conn.sql(f"SELECT * FROM {pipeline.dataset_name}.<table_name>").pl() # fetch_arrow_table(), show()
 ```
 
 **Why does this matter?**:
@@ -202,6 +227,7 @@ However, imagine a scenario where you need an additional step in between, for ex
 Given the *pokemon* resource, we need to get detailed information about pokemons from [PokeAPI](https://www.google.com/url?q=https%3A%2F%2Fpokeapi.co%2F) `"https://pokeapi.co/api/v2/pokemon/{id}"` based on their IDs.
 
 ```python
+# Pattern #1: Transformer receives all items at once
 @dlt.resource(table_name="pokemon")
 def my_pokemons() -> TDataItems:
     pokemons = [
@@ -212,7 +238,6 @@ def my_pokemons() -> TDataItems:
     yield pokemons
 
 # Define a transformer to enrich pokemon data with additional details
-# NOTE: Transformer receives all items at once
 @dlt.transformer(data_from=my_pokemons, table_name="detailed_info")
 	def poke_details(
     items: TDataItems,
@@ -226,7 +251,19 @@ def my_pokemons() -> TDataItems:
         print(f"Details: {details}\n")
         yield details
 
-# NOTE: Transformer receives one item at a time
+# ===
+
+# Pattern #2: Transformer receives one item at a time
+@dlt.resource(table_name="pokemon")
+def my_other_pokemons() -> TDataItems:
+    pokemons = [
+        {"id": "1", "name": "bulbasaur", "size": {"weight": 6.9, "height": 0.7}},
+        {"id": "4", "name": "charmander", "size": {"weight": 8.5, "height": 0.6}},
+        {"id": "25", "name": "pikachu", "size": {"weight": 6, "height": 0.4}},
+    ]
+
+    yield from pokemons
+
 @dlt.transformer(data_from=my_other_pokemons, table_name="detailed_info")
 def other_poke_details(
     data_item: TDataItem,
@@ -258,7 +295,7 @@ load_info = another_pipeline.run(my_pokemons | poke_details)
 print(load_info)
 ```
 
-## Nesting levels
+### Nesting levels
 
 You can limit how deep dlt goes when generating nested tables and flattening dicts into columns. By default, the library will descend and generate nested tables for all nested lists, without limit. You can set nesting level for all resources on the source level or for each resource separately:
 
@@ -276,3 +313,62 @@ In the example above, we want only 1 level of nested tables to be generated (so 
 
 - `max_table_nesting=0` will not generate nested tables and will not flatten dicts into columns at all. All nested data will be represented as JSON.
 - `max_table_nesting=1` will generate nested tables of root tables and nothing more. All nested data in nested tables will be represented as JSON.
+
+## Pagination and Authentication
+
+When working with APIs, you could implement pagination using only Python and the `requests` library. While this approach works, it often requires writing boilerplate code for tasks like managing authentication, constructing URLs, and handling pagination logic. **But!** We’re going to use dlt's **[RESTClient](https://www.google.com/url?q=https%3A%2F%2Fdlthub.com%2Fdocs%2Fgeneral-usage%2Fhttp%2Frest-client)** to handle pagination seamlessly when working with REST APIs like GitHub.
+
+**Why use RESTClient?**
+
+RESTClient is part of dlt's helpers, making it easier to interact with REST APIs by managing repetitive tasks such as:
+
+- Authentication
+- Query parameter handling
+- Pagination
+
+This reduces boilerplate code and lets you focus on your data pipeline logic. 
+
+1. Import `RESTClient`
+2. Create a `RESTClient` instance
+3. Use the `paginate` method to iterate through all pages of data
+
+```python
+from dlt.sources.helpers.rest_client import RESTClient
+from dlt.sources.helpers.rest_client.paginators import HeaderLinkPaginator
+
+# Pattern #1: Let DLT figure it out
+client = RESTClient(
+    base_url="https://api.github.com",
+)
+  
+# Pattern #2: Specify paginator
+client = RESTClient(
+    base_url="https://api.github.com",
+    paginator=HeaderLinkPaginator(),
+)
+
+for page in client.paginate("orgs/dlt-hub/events"):
+    print(page)
+```
+
+The events endpoint doesn’t contain as much data, especially compared to the issue comments endpoint of the dlt repository. If you run the pipeline for the issue comments endpoint, there's a high chance that you'll face a **rate limit error**.
+
+To avoid the **rate limit error** you can use [GitHub API Authentication](https://www.google.com/url?q=https%3A%2F%2Fdocs.github.com%2Fen%2Frest%2Fauthentication%2Fauthenticating-to-the-rest-api%3FapiVersion%3D2022-11-28):
+
+1. Login to your GitHub account.
+2. Generate an [API token](https://www.google.com/url?q=https%3A%2F%2Fdocs.github.com%2Fen%2Fauthentication%2Fkeeping-your-account-and-data-secure%2Fcreating-a-personal-access-token) (classic).
+3. Use it as an access token for the GitHub API.
+
+```python
+from dlt.sources.helpers.rest_client.auth import BearerTokenAuth
+
+client = RESTClient(
+    base_url="https://api.github.com",
+    auth=BearerTokenAuth(token=access_token),
+)
+
+for page in client.paginate("repos/dlt-hub/dlt/issues/comments"):
+    print(page)
+    break
+```
+
