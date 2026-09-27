@@ -299,25 +299,6 @@ load_info = another_pipeline.run(my_pokemons | poke_details)
 print(load_info)
 ```
 
-### Nesting levels
-
-You can limit how deep dlt goes when generating nested tables and flattening dicts into columns. By default, the library will descend and generate nested tables for all nested lists, without limit. You can set nesting level for all resources on the source level or for each resource separately:
-
-```python
-@dlt.source(max_table_nesting=1)
-def all_data():
-	return my_df, get_genome_data, get_pokemon
-
-@dlt.resource(table_name='pokemon_new', max_table_nesting=1)
-def my_dict_list():
-	yield data
-```
-
-In the example above, we want only 1 level of nested tables to be generated (so there are no nested tables of a nested table). Typical settings:
-
-- `max_table_nesting=0` will not generate nested tables and will not flatten dicts into columns at all. All nested data will be represented as JSON.
-- `max_table_nesting=1` will generate nested tables of root tables and nothing more. All nested data in nested tables will be represented as JSON.
-
 ## How dlt works
 
 The `pipeline.run()` method executes the entire pipeline, encompassing the `extract`, `normalize`, and `load` stages.
