@@ -726,3 +726,218 @@ NORMALIZE__DATA_WRITER__DELIMITER=|
 NORMALIZE__DATA_WRITER__INCLUDE_HEADER=False
 NORMALIZE__DATA_WRITER__QUOTING=quote_all
 ```
+
+## Pipeline Metadata
+
+**Pipeline metadata** is data about your data pipeline. This is useful when you want to know things like:
+
+- When your pipeline first ran
+- When your pipeline last ran
+- Information about your source or destination
+- Processing time
+- Custom metadata you add yourself
+- And much more!
+
+`dlt` allows you to view all this metadata through various options!
+
+- Load info
+- Trace
+- State
+### Load info
+
+`Load Info:` This is a collection of useful information about the recently loaded data. It includes details like the pipeline and dataset name, destination information, and a list of loaded packages with their statuses, file sizes, types, and error messages (if any).
+
+`Load Package:` A load package is a collection of jobs with data for specific tables, generated during each execution of the pipeline. Each package is uniquely identified by a `load_id`.
+
+```sh
+$ dlt pipeline -v <pipeline_name> load-package
+
+Found pipeline my_pipeline in /home/fddemarco/.dlt/pipelines
+Package 1790517781.6166503 found in /home/fddemarco/.dlt/pipelines/my_pipeline/load/loaded/1790517781.6166503
+The package with load id 1790517781.6166503 for schema my is in LOADED state. It updated schema for 0 tables. The package was LOADED at 2026-09-27 14:03:01.784476+00:00.
+Jobs details:
+Job: copy.af7a2ba9c1.insert_values.gz, table: copy in completed_jobs. File type: insert_values, size: 186B. Started on: 2026-09-27 14:03:01.663841+00:00 and completed in 0.12 seconds.
+Job: copy__nested.40117e8fa6.insert_values.gz, table: copy__nested in completed_jobs. File type: insert_values, size: 182B. Started on: 2026-09-27 14:03:01.664026+00:00 and completed in 0.12 seconds.
+```
+The `load_id` of a particular package is added to the top data tables (parent tables) and to the special `_dlt_loads` table with a status of `0` when the load process is fully completed. The `_dlt_loads` table tracks completed loads and allows chaining transformations on top of them.
+
+We can also view load package info for a specific `load_id` (replace the value with the one output above):
+
+```sh
+$ dlt pipeline -v <pipeline_name> load-package <load_id>
+
+Found pipeline my_pipeline in /home/fddemarco/.dlt/pipelines
+Package 1790517781.6166503 found in /home/fddemarco/.dlt/pipelines/my_pipeline/load/loaded/1790517781.6166503
+The package with load id 1790517781.6166503 for schema my is in LOADED state. It updated schema for 0 tables. The package was LOADED at 2026-09-27 14:03:01.784476+00:00.
+Jobs details:
+Job: copy.af7a2ba9c1.insert_values.gz, table: copy in completed_jobs. File type: insert_values, size: 186B. Started on: 2026-09-27 14:03:01.663841+00:00 and completed in 0.12 seconds.
+Job: copy__nested.40117e8fa6.insert_values.gz, table: copy__nested in completed_jobs. File type: insert_values, size: 182B. Started on: 2026-09-27 14:03:01.664026+00:00 and completed in 0.12 seconds.
+```
+
+We can also access the load info from Python:
+
+```python
+print(load_info.load_packages[0])
+```
+
+### Trace
+`Trace`: A trace is a detailed record of the execution of a pipeline. It provides rich information on the pipeline processing steps: **extract**, **normalize**, and **load**. It also shows the last `load_info`. You can access the pipeline trace using the command:
+
+```sh
+$ dlt pipeline <pipeline_name> trace
+
+Found pipeline my_pipeline in /home/fddemarco/.dlt/pipelines
+Run started at 2026-09-27 14:08:47.056571+00:00 and COMPLETED in 0.24 seconds with 4 steps.
+Step extract COMPLETED in 0.04 seconds.
+
+Load package 1790518127.125266 is EXTRACTED and NOT YET LOADED to the destination and contains no failed jobs
+
+Step normalize COMPLETED in 0.03 seconds.
+Normalized data for the following tables:
+- copy: 3 row(s)
+- copy__nested: 2 row(s)
+
+Load package 1790518127.125266 is NORMALIZED and NOT YET LOADED to the destination and contains no failed jobs
+
+Step load COMPLETED in 0.12 seconds.
+Pipeline my_pipeline load step finished in 0.10 seconds
+1 load package(s) were loaded to destination duckdb and into dataset my_pipeline_dataset
+The duckdb destination used duckdb:////home/fddemarco/data-eng/dlt/my_pipeline.duckdb location to store data
+Load package 1790518127.125266 is LOADED and contains no failed jobs
+
+Step run COMPLETED in 0.24 seconds.
+Pipeline my_pipeline load step finished in 0.10 seconds
+1 load package(s) were loaded to destination duckdb and into dataset my_pipeline_dataset
+The duckdb destination used duckdb:////home/fddemarco/data-eng/dlt/my_pipeline.duckdb location to store data
+Load package 1790518127.125266 is LOADED and contains no failed jobs
+```
+
+We can also access the trace using Python:
+
+```python
+print(pipeline.last_trace)
+```
+
+## Pipeline State
+
+[`The pipeline state`](https://www.google.com/url?q=https%3A%2F%2Fdlthub.com%2Fdocs%2Fgeneral-usage%2Fstate) is a Python dictionary that lives alongside your data. You can store values in it during a pipeline run, and then retrieve them in the next pipeline run. It's used for tasks like preserving the "last value" or similar loading checkpoints, and it gets committed atomically with the data. The state is stored locally in the pipeline working directory and is also stored at the destination for future runs.
+
+**When to use pipeline state**
+
+- `dlt` uses the state internally to implement last value incremental loading. This use case should cover around 90% of your needs to use the pipeline state.
+- Store a list of already requested entities if the list is not much bigger than 100k elements.
+- Store large dictionaries of last values if you are not able to implement it with the standard incremental construct.
+- Store the custom fields dictionaries, dynamic configurations and other source-scoped state.
+
+**When not to use pipeline state**
+
+Do not use `dlt` state when it may grow to millions of elements. For example, storing modification timestamps for millions of user records is a bad idea.
+
+```sh
+$ dlt pipeline -v <pipeline_name> info
+
+Attaching to pipeline my_pipeline
+Found pipeline my_pipeline in /home/fddemarco/.dlt/pipelines
+Synchronized state:
+_state_version: 1
+_state_engine_version: 4
+pipeline_name: my_pipeline
+dataset_name: my_pipeline_dataset
+schema_names: ['my']
+default_schema_name: my
+destination_type: dlt.destinations.duckdb
+destination_name: None
+_version_hash: +2Z3B/gKqhXoKMrObpXTXYY4U39HWZRi6liSkToafDk=
+
+Local state:
+first_run: False
+_dev_mode: False
+initial_cwd: /home/fddemarco/data-eng/dlt
+last_run_context['uri']: file:///home/fddemarco/data-eng/dlt
+_last_extracted_at: 2026-09-27 00:09:21.031498+00:00
+_last_extracted_hash: +2Z3B/gKqhXoKMrObpXTXYY4U39HWZRi6liSkToafDk=
+
+Resources in schema: my
+items with 2 table(s) and 0 resource state slot(s)
+	items table 3 column(s) received data 
+	items__nested table 4 column(s) received data 
+items_copy with 2 table(s) and 0 resource state slot(s)
+	items_copy table 3 column(s) received data 
+	items_copy__nested table 4 column(s) received data 
+copy with 2 table(s) and 0 resource state slot(s)
+	copy table 3 column(s) received data 
+	copy__nested table 4 column(s) received data 
+
+Working dir content:
+Has 21 completed load packages with following load ids:
+1790467760.9829428
+1790467792.5685344
+1790467842.5402555
+1790468278.195622
+1790468672.793539
+1790468910.2553408
+1790469266.030951
+1790481037.0530891
+1790481131.2949724
+1790481358.0492039
+1790482398.3358214
+1790482477.3352327
+1790482477.5989878
+1790482532.4827652
+1790482857.9550512
+1790483178.9672258
+1790483179.2426977
+1790517781.0514302
+1790517781.6166503
+1790518126.8753612
+1790518127.125266
+
+Pipeline has last run trace. Use 'dlt pipeline my_pipeline trace' to inspect 
+
+```
+
+###  Resource state
+
+You can **read** and **write** the state in your resources using:
+
+```python
+dlt.current.resource_state().get()
+```
+and
+
+```python
+dlt.current.resource_state().setdefault(key, value)
+```
+
+### Source state
+
+You can also access the source-scoped state with `dlt.current.source_state()` which can be shared across resources of a particular source and is also available read-only in the source-decorated functions. The most common use case for the source-scoped state is to store the mapping of custom fields to their displayable names. Let's read some custom keys from the state with:
+
+```python
+source_new_keys = dlt.current.source_state().get("resources", {}).get("github_pulls", {}).get("new_key")
+```
+
+### Sync state
+
+What if you run your pipeline on, for example, Airflow, where every task gets a clean filesystem and the pipeline working directory is always deleted? dlt loads your state into the destination together with all other data, and when starting from a clean slate, it will try to restore the state from the destination.
+
+The remote state is identified by the pipeline name, the destination location (as defined by the credentials), and the destination dataset. To reuse the same state, use the same pipeline name and the same destination. The state is stored in the `dlt_pipeline_state` table at the destination and contains information about the pipeline, the pipeline run (to which the state belongs), and the state blob. dlt provides a command that retrieves the state from that table.
+
+```sh
+dlt pipeline <pipeline name> sync
+```
+
+If you can keep the pipeline working directory across runs, you can disable state sync by setting `restore_from_destination = false` in your `config.toml`.
+
+### Reset state
+
+**To fully reset the state:**
+
+- Drop the destination dataset to fully reset the pipeline.
+- Set the `dev_mode` flag when creating the pipeline.
+- Use the `dlt pipeline drop --drop-all` command to drop state and tables for a given schema name.
+
+**To partially reset the state:**
+
+- Use the `dlt pipeline drop <resource_name>` command to drop state and tables for a given resource.
+- Use the `dlt pipeline drop --state-paths` command to reset the state at a given path without touching the tables or data.
