@@ -9,6 +9,8 @@ Status: Not started
 ---
 [[Domain Driven Design (DDD)]]
 [[Book - Inspired]]
+[[Book - Thinking in Systems]]
+
 
 ## What is Data Mesh?
 
@@ -158,6 +160,9 @@ Organizationally, by design, data mesh is a federation. It has an organizational
 - **Policies**. Security, conformance, legal, and interoperability guidelines and standards governing the mesh
 - **Incentives**. Leverage points that balance local and global optimization
 - **Platform automations**. Protocols, standards, policies as code, automated testing, monitoring and recovery of the mesh governance
+
+Data mesh leaves the modeling of data to the domains, the people closest to the data. However, in order to get interoperability and linkage between data across domains, there are data entities in each domain that need to be modeled in a **consistent fashion across all domains**. Such entities are called **polysemes**. Standardizing how polysemes are modeled, identified, and mapped across domains is a **global governance function**.
+
 ## Why Data Mesh?
 
 ...
