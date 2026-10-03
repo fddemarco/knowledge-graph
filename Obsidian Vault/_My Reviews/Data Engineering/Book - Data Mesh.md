@@ -125,7 +125,39 @@ Over the last decade, high-performing organizations have embraced the idea of tr
 	- Confidentiality levels
 	- Data retention
 	- Regulations and agreements
-	
+
+### Data Platform
+
+The data mesh platform must close the gap between analytical and operational technologies. It must find ways to get them to work seamlessly together, in a way that is natural to a cross-functional domain-oriented data and application team.
+
+Data mesh creates a clear delineation of responsibility between domain teams—who focus on creating business-oriented products, services that are ideally data-driven, and data products—and the platform teams who focus on technical enablers for the domains. This is different from the existing delineation of responsibility where the data team is often responsible for amalgamation of domain-specific data for analytical usage, as well as the underlying technical infrastructure.
+
+Provisioning and managing the underlying infrastructure for life cycle management of a data product requires specialized knowledge of today’s tooling and is difficult to replicate in each domain. Hence, the data mesh platform must implement all necessary capabilities allowing a data product developer to build, test, deploy, secure, and maintain a data product without worrying about the underlying infrastructure resource provisioning. It must enable all domain-agnostic and cross-functional capabilities.
+
+Ultimately, the platform must enable the data product developer to just focus on the
+domain-specific aspects of data product development:
+- Transformation code, the domain-specific logic that generates and maintains the data
+- Build-time tests to verify and maintain the domain’s data integrity
+- Runtime tests to continuously monitor that the data product meets its quality guarantees
+- Developing a data product’s metadata such as its schema, documentation, etc.
+- Declaration of the required infrastructure resources
+
+### Data Governance
+
+Governance is the mechanism that assures that the mesh of independent data products, as a whole, is secure, trusted, and most importantly delivers value through the interconnection of its nodes. In the past, governance has relied heavily on manual interventions, complex central processes of data validation and certification, and establishing global canonical modeling of data with minimal support for change, often engaged too late after the fact.
+
+**Data mesh governance** embeds the computational policies in each and **every domain** and **data product** with autonomy and **domain-local decision-making power**, while creating and adhering to a set of global rules. The **global** **rules** are informed and enabled by global specializations such as legal and security to ensure a trustworthy, secure, and interoperable ecosystem. Data mesh calls this model of governance a **federated computational governance**.
+
+One of the common concerns I hear from the existing governance teams is around “preventing **data product duplication and redundant work**,” basically controlling the chaos that may arise from each domain team making independent decisions and **creating duplicate data products**. This of course stems from scars they have incurred over the years, seeing teams copying data into many isolated and abandoned databases, each for a single use. Traditionally, this problem has been solved by injecting governance control structures that qualify and certify that the data is not a duplicate before it can be used. Data mesh introduces **feedback loops** to get the same outcome without creating bottlenecks.
+The platform “search and discovery” feature can give lower visibility to the duplicate data products that don’t have high ratings; as a result, they get gradually degraded on the mesh and hence less used. The platform can inform the data product owners of the state of their data products and nudge them to prune out unused and duplicate data products in favor of others. This mechanism is called a **negative or balancing feedback loop**. Vice versa, there is also a **positive feedback loop** for highly used, highly rated data products.
+
+Organizationally, by design, data mesh is a federation. It has an organizational structure with smaller divisions, the domains, where each has a fair amount of internal autonomy. The domains control and own their data products. They control how their data products are modeled and served. Despite the autonomy of the domains, there are a set of standards and global policies that all domains must adhere to as a prerequisite to be a member of the mesh. Data mesh proposes a governance operating model that benefits from federated decision making.
+
+- **Federated team**. Composed of domain product owners, subject matter experts such as legal and security
+- **Guiding values**. Managing the scope and guiding what good looks like
+- **Policies**. Security, conformance, legal, and interoperability guidelines and standards governing the mesh
+- **Incentives**. Leverage points that balance local and global optimization
+- **Platform automations**. Protocols, standards, policies as code, automated testing, monitoring and recovery of the mesh governance
 ## Why Data Mesh?
 
 ...
