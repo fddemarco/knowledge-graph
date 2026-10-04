@@ -165,7 +165,15 @@ Data mesh leaves the modeling of data to the domains, the people closest to the 
 
 ## Why Data Mesh?
 
-...
+Data mesh assumes a new default starting state: proliferation of data origins within and beyond organizations’ boundaries, on one or across multiple cloud platforms. It assumes a diverse range of use cases for analytical data. It works with the grain of a highly complex and volatile organizational environment, and not against it.
+
+Today, we keep **copying data** around because we need the data for yet another mode of access, or yet another model of computation. We copy data from operational systems to a landing zone and then to the data lake and after that to feature stores for data scientists. We copy the data again from the lake into lakeshore marts for data analyst access and then into the downstream dashboard or reporting databases for the last mile. We build complex and brittle pipelines to do the copying.
+
+Data mesh addresses this problem by creating a new architectural unit that encapsulates a domain-oriented data semantic while also providing **multiple modes of access** to the data suitable for different use cases and users. This architectural unit is called the **data product quantum** (data quantum for short). A data quantum has an explicit set of **contracts and guarantees** for each of its native access modes—SQL, files, events, etc. It can be accessed anywhere across the internet, in case it chooses to provide data to external data users. It provides **access control and policy enforcement** on each of its interfaces at the time of access. A data quantum encapsulates the code that transforms and maintains its data. Data pipelines break down and become internal implementations of data quantum logic. A data quantum shares data without the need for intermediary pipelines.
+
+Data mesh looks critically at the existing technology landscape and reimagines the technology solutions as a **data-product-developer** (or user)-centric platform. It intends to remove the need for **data specialists** and enable **generalist experts** to develop data products. Additionally, data mesh defines a set of **open and standard interfaces** for different affordances that all data products share—discovering, requesting access, querying, serving data, securing data, etc.—to enable a more collaborative ecosystem of technologies. This is to reduce the cost of integration across vendors.
+
+
 
 ## How to Design the Data Mesh Architecture
 

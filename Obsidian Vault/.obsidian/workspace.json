@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d6fab96f6a90a32d",
+        "id": "96d634edc38920b9",
         "type": "tabs",
         "children": [
           {
-            "id": "f9a8f498201be74a",
+            "id": "18e61c71a4cd4038",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -200,10 +200,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "f9a8f498201be74a",
+  "active": "18e61c71a4cd4038",
   "lastOpenFiles": [
-    "_My Reviews/Data Engineering/Book - Non-Invasive Data Governance.md",
+    "_My Reviews/Software Design/Book - Clean Architecture.md",
     "_My Reviews/Data Engineering/Book - Data Mesh.md",
+    "_My Reviews/Data Engineering/Book - Non-Invasive Data Governance.md",
     "_My Courses/Academy - Airbyte Academy.md",
     "Engineering/Software Architecture/Domain Driven Design (DDD).md",
     "_My Reviews/Business and Management/Book - Thinking in Systems.md",
@@ -232,7 +233,6 @@
     "Engineering/Data Engineering/dlt/dlt Fundamentals - 06 Schema Management.md",
     "Engineering/Data Engineering/dlt/dlt Fundamentals - 05 Incremental Loading.md",
     "_My Courses/Academy - DLT Hub.md",
-    "Engineering/Data Engineering/dlt/dlt Fundamentals - 04 Write Dispositions and Strategies.md",
     "Engineering/Data Engineering/dlt",
     "Pasted image 20260925120610.png",
     "Engineering/Software Engineering/Java",
