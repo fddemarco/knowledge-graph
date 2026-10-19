@@ -10,7 +10,8 @@ Status: Not started
 [[Domain Driven Design (DDD)]]
 [[Book - Inspired]]
 [[Book - Thinking in Systems]]
-
+[[Book - Fundamentals of Software Architecture]]
+[[Book - The Design of Everyday Things]]
 
 ## What is Data Mesh?
 
@@ -173,15 +174,82 @@ Data mesh addresses this problem by creating a new architectural unit that encap
 
 Data mesh looks critically at the existing technology landscape and reimagines the technology solutions as a **data-product-developer** (or user)-centric platform. It intends to remove the need for **data specialists** and enable **generalist experts** to develop data products. Additionally, data mesh defines a set of **open and standard interfaces** for different affordances that all data products share—discovering, requesting access, querying, serving data, securing data, etc.—to enable a more collaborative ecosystem of technologies. This is to reduce the cost of integration across vendors.
 
+### Evolution of Data Architectures
 
+**Data warehousing architecture** today is influenced by early concepts such as facts and dimensions. The architecture intends to move data from operational systems to business intelligence (BI) systems. BI systems have traditionally served management with operational planning of an organization. While data warehousing solutions have greatly evolved, many of the original characteristics and assumptions of their architectural model remain the same. Data is:
+
+- Extracted from many operational databases and sources
+- Transformed into a universal schema—represented in a multidimensional and time-variant tabular format
+- Loaded into the warehouse tables
+- Accessed through SQL-like queries
+- Mainly serving data analysts for reporting and analytical visualization use cases
+
+Data lake architecture was introduced in 2010 in response to the challenges of data warehousing architecture in satisfying the new uses of data: access to data by data scientists in the machine learning model training process. **Data lake architecture**, similar to a data warehouse, assumes that data gets extracted from operational systems and loaded into a central repository often in the format of an object store—storage of any type of data. However, unlike data warehousing, a data lake assumes very little or no transformation and modeling of the data up front; it attempts to retain the data close to its original form. Once the data becomes available in the lake, the architecture gets extended with elaborate transformation pipelines to model the higher value data and store it in lakeshore marts or feature stores at the edge of the lake. There are refinements to this approach, with allocated “zones” in the lake, storing data with varying degrees of cleansing and transformation, to organize the lake a bit better.
+
+Data lake architecture suffers from complexity and deterioration. It creates complex and unwieldy pipelines of batch or streaming jobs operated by a central team of hyper-specialized data engineers. It deteriorates over time. Its unmanaged datasets, which are often untrusted and inaccessible, provide little value. The data lineage and dependencies are obscured and hard to track.
+
+Despite the undeniable innovation, there are fundamental assumptions that have remained unchallenged for the last few decades and must be closely evaluated:
+
+- Data must be centralized to be useful—managed by a centralized organization, with an intention to have an enterprise-wide taxonomy.
+- Data management architecture, technology, and organization are monolithic.
+- The enabling technologies drive the paradigm—architecture and organization.
+
+At 30,000 feet, the data platform architecture is a monolithic architecture whose goal is to:
+
+- Ingest data from all corners of the enterprise and beyond, ranging from operational and transactional systems in domains that run the business to external data providers that augment the knowledge of the enterprise.
+- Cleanse, enrich, and transform the source data into trustworthy data that can address the needs of a diverse set of consumers.
+- Serve datasets to a variety of consumers with a diverse set of needs. This ranges from data exploration and machine learning training to business intelligence reports.
+
+Over the last decade we have successfully applied **domain-driven design** and bounded context to the design of our operational systems to manage software complexity at scale, we have largely disregarded domain-driven design paradigm for data. DDD’s strategic design introduces a set of principles to manage software modeling at scale in a large and complex organization. It encourages moving away from a **single canonical model** to many **bounded context models**. It assumes multiple models each owned and managed by a unit of organization. And it explicitly articulates the relationships between these models.
+
+Looking back at different generations of analytical data architectures, from warehouse to lake and all on the cloud, we have heavily leaned on a **technology-driven architecture**. A typical solution architecture of a data management system merely wires together various technologies, each performing a technical function, a piece of the end-to-end storage and processing flow.
+
+The core technologies listed in the figure are powerful and helpful in enabling a **data platform**. However, the proposed solution architecture decomposes and then integrates the components of the architecture based on their technical function and the solution supporting the function. For example, first we encounter the ingestion function supported by Cloud Pub/Sub and then publishing data to Cloud Storage, which then serves data through BigQuery. This approach leads to a **technically partitioned architecture** and consequently an **activity-oriented team decomposition**.
+
+**Top-level technical partitioning** decomposes the system into its components based on their technical capabilities and concerns; it’s a decomposition that is closer to the implementation concerns than business domain concerns. Architects and leaders of monolithic data platforms have decomposed monolithic solutions based on a pipeline architecture into its technical functions such as ingestion, cleansing, aggregation, enrichment, and serving. An alternative approach is a **top-level domain-oriented partitioning**, where these technical functions are embedded in every domain, where the change to the domain can be managed locally without top-level synchronization.
+
+The consequence of **top-level technical decomposition** is decomposing teams into activity-oriented groups, each focused on a particular activity required by a stage of the pipeline, for example, a team focusing on ingestion of data from various sources or a team responsible for serving the lakeshore marts. Each team attempts to **optimize their activity**, for example find patterns of ingestion. Though this model provides some level of scale, by assigning teams to different activities of the flow, it has an inherent limitation that does not scale what matters: delivery of outcome. **Delivering an outcome** demands synchronization between teams and aligning changes to the activities. Such decomposition is **orthogonal** to the axis of change or outcome, slows down the delivery of value, and introduces organizational friction. Conversely, an **outcome-oriented team decomposition** optimizes for an end-to-end outcome, delivered rapidly and with low synchronization overhead.
 
 ## How to Design the Data Mesh Architecture
 
-...
+To promote a domain-oriented decomposition of data ownership, we need to model an architecture that arranges the analytical data1 by domains. In this architecture, a domain’s interface to the rest of the organization not only includes the **operational capabilities** but also shares the **analytical data** that a domain generates and owns.
 
+**Analytical interfaces** are the APIs that data products expose to get discovered, understood, and observed and to share their data. For analytical data sharing, the APIs may choose to redirect the clients to the underlying storage of the data, once the access policies are enforced. Depending on the data product’s implementation, the data sharing interface can redirect access to either a blob storage (e.g., Parquet files from AWS S3) or an event stream (e.g., Kafka Topic), or a table (e.g., BigQuery Table) or something completely different.
+
+To implement such interfaces there is code involved in providing the necessary
+information and serving them:
+
+- **Output data APIs**. There is a set of collaborating APIs that share the output data of a data product in a way that can be understood and trusted. Output data APIs can receive and run remote queries on their data, for example an interface to run SQL queries on the underlying tables holding data. Output APIs share the data in multiple formats. For example, APIs read semi-structured files from blob storage or subscribe to an event stream.
+- **Input data APIs**. These APIs are used internally by the data product to configure and read data from the upstream sources. They can be implemented as a subscription to upstream output data APIs and asynchronously receive data as it becomes available. They can be implemented as queries executed on an upstream source and read as data frames. The arrival of input data triggers the transformation code.
+- **Discovery and observability APIs**. These APIs provide additional information about the data product to help with its discoverability and debugging. For example, a discovery API can provide information about the team maintaining the data products, tags that help to search for it, description of its semantic, etc.
+
+The governance standardizes the definition of these interfaces across all data prod‐ ucts, and the platform provides the mechanisms to implement them.
+
+In data mesh architecture, the **data dependency** is defined and controlled by a data product to its upstream source. A **data product** is in full control of what its sources are and what data it consumes from them and how.
+
+An **architectural quantum**, defined in [[Book - Building Evolutionary Architectures]] and
+later expanded in the [[Book - Software Architecture The Hard Parts]], is the smallest unit of architecture that can be independently deployed, has high functional cohesion, and includes all the “structural elements required for its function.” In the case of data mesh, a data product is an architectural quantum. It is the smallest unit of architecture that can be independently deployed and managed. It has high functional cohesion, i.e., performing a specific analytical transformation and securely sharing the result as domain-oriented analytical data. It has all the structural components that it requires to do its function: the transformation code, the data, the metadata, the policies that govern the data, and its dependencies to infrastructure.
+
+At a high level, data products have three types of **structural components**: code, data (and metadata and configuration), and the specifications of its infrastructure dependencies.
+
+- For a data product to independently control the life cycle of analytical data—maintain the business logic that generates it, control its revisions, manage access to it, and share its content—it must include **code** and run it within its computational context. This is a fundamental difference between what data mesh calls a data product and other forms of data artifacts. A data product is active while other data artifacts like files or tables are passive.
+- In traditional architectures, this code lives outside of a data product, as a **data pipeline**. A pipeline is managed as an **independent artifact**, perhaps a DAG configuration. Its output data is managed independently, perhaps as a table in a warehouse. Data mesh removes the concept of an **external pipeline** and introduces the **internal transformation code**. This code may be implemented as a pipeline, or not. The important differentiating point is that the code is encapsulated as an **internal implementation of a data product**. Its life cycle is controlled by the data product, and it runs in the execution context allocated to the data product.
+
+The last category of code encapsulated by a data product implementation is the code responsible for configuring and executing various behavioral and **structural policies**, such as encryption, access control, quality, and compliance. This code is provided by the platform but invoked in the flow to data product read and write functions.
+
+For data to be usable, data products maintain and serve an associated set of information about the data—often called metadata. For example, this includes the data’s documentation, semantic and syntax declarations, and SLOs. The life cycle of metadata and how often it changes depends on its type. For example, data models—semantic or syntax—change less often and change at build time. However, most metadata changes as a data product generates new data, including statistical properties of the data, and its current SLO metric values.
+
+There are two general approaches in designing such a platform: adopt a **single and tightly integrated platform**—often bought from a main vendor—or use a **set of loosely integrated services** that expose standard and open interfaces, often implemented as a combination of build and buy from different vendors. Data mesh platform design falls into the second camp. It favors breaking a complex platform into its capabilities, served through APIs, with open interfaces to integrate with other collaborating capabilities.
 ## How to Design the Data Product Architecture
 
-...
+In his book [[Book - The Design of Everyday Things]], Don Norman, the father of cognitive engineering, calls out affordances as one of the five fundamental principles of interactions. He describes:
+
+>*The term affordance refers to the relationship between a physical object and a person (or for that matter, any interacting agent, whether animal or human, or even machines and robots). An affordance is a relationship between the properties of an object and the capabilities of the agent that determine just how the object could possibly be used. A chair affords (“is for”) support and, therefore, affords sitting. Most chairs can also be carried by a single person (they afford lifting), but some can only be lifted by a strong person or by a team of people. If young or relatively weak people cannot lift a chair, then for these people, the chair does not have that affordance, it does not afford lifting.*
+> 
+> *The presence of an affordance is jointly determined by the qualities of the object and the abilities of the agent that is interacting. This relational definition of affordance gives considerable difficulty to many people. We are used to thinking that properties are associated with objects. But affordance is not a property. An affordance is a relationship. Whether an affordance exists depends upon the properties of both the object and the agent.* 
+
+
+
 
 ## How to Get Started
 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_My Reviews/Data Engineering/Book - Data Mesh.md",
+                "file": "_My Learning Plans/Career Path - Azure Data Engineer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Book - Data Mesh"
+              "title": "Career Path - Azure Data Engineer"
             }
           }
         ]
@@ -173,10 +173,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_My Reviews/Data Engineering/Book - Data Mesh.md",
+                "file": "_My Learning Plans/Career Path - Azure Data Engineer.md",
                 "followCursor": false,
                 "showSearch": true,
-                "searchQuery": "system"
+                "searchQuery": ""
               },
               "icon": "lucide-list",
               "title": "Outline"
@@ -202,8 +202,19 @@
   },
   "active": "18e61c71a4cd4038",
   "lastOpenFiles": [
-    "_My Reviews/Software Design/Book - Clean Architecture.md",
     "_My Reviews/Data Engineering/Book - Data Mesh.md",
+    "_My Reviews/Product Thinking/Book - The Design of Everyday Things.md",
+    "Engineering/Software Engineering/Python/Library - Kedro.md",
+    "Engineering/Software Engineering/Python/Tool - DVC.md",
+    "Engineering/Machine Learning/Article - Continuous Delivery for Machine Learning.md",
+    "_My Learning Plans/Career Path - AI Engineer.md",
+    "_My Learning Plans/Career Path - Azure Data Analyst.md",
+    "_My Learning Plans/Career Path - Azure Data Engineer.md",
+    "_My Reviews/Software Design/Book - Software Architecture The Hard Parts.md",
+    "Book - Building Evolutionary Architectures.md",
+    "_My Reviews/Software Design/Book - Fundamentals of Software Architecture.md",
+    "_My Reviews/Software Design/Book - Building Evolutionary Architectures.md",
+    "_My Reviews/Software Design/Book - Clean Architecture.md",
     "_My Reviews/Data Engineering/Book - Non-Invasive Data Governance.md",
     "_My Courses/Academy - Airbyte Academy.md",
     "Engineering/Software Architecture/Domain Driven Design (DDD).md",
@@ -220,19 +231,8 @@
     "Engineering/Cloud Platforms",
     "Engineering/AI Engineering/OpenAI.md",
     "Engineering/AI Engineering/xAI.md",
-    "_My Courses/Academy - Claude Academy.md",
     "Engineering/AI Engineering",
-    "_My Courses/Academy - OpenAI Academy.md",
-    "_My Courses/Academy - Confluent Learn.md",
-    "_My Certifications/Certification - TOGAF Opengroup.md",
-    "Engineering/Data Engineering/dlt/Miscellaneous.md",
-    "Untitled.md",
-    "_My Reviews/Product Thinking/Book - Inspired.md",
     "_My Reviews/Product Thinking",
-    "Engineering/Data Engineering/dlt/dlt Fundamentals - 01 Basics.md",
-    "Engineering/Data Engineering/dlt/dlt Fundamentals - 06 Schema Management.md",
-    "Engineering/Data Engineering/dlt/dlt Fundamentals - 05 Incremental Loading.md",
-    "_My Courses/Academy - DLT Hub.md",
     "Engineering/Data Engineering/dlt",
     "Pasted image 20260925120610.png",
     "Engineering/Software Engineering/Java",
