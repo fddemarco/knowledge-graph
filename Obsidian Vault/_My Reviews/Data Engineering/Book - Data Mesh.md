@@ -249,9 +249,32 @@ In his book [[Book - The Design of Everyday Things]], Don Norman, the father of 
 > *The presence of an affordance is jointly determined by the qualities of the object and the abilities of the agent that is interacting. This relational definition of affordance gives considerable difficulty to many people. We are used to thinking that properties are associated with objects. But affordance is not a property. An affordance is a relationship. Whether an affordance exists depends upon the properties of both the object and the agent.* 
 
 
+Common mechanisms for implementing the input port for consuming data from collaborating operational systems include **asynchronous event-driven data sharing** in the case of modern systems, and **change data capture** for legacy systems that are difficult to change. Modern operational systems sharing their domain events is increasingly becoming a common practice and is a great model for feeding data to a collaborative data product. Change data capture is a set of integration patterns to discover and track changes to an application database, which then can be sourced as the input to the data product. This is the least desirable way to receive data from a collaborating operational system. It exposes the internal implementation of a database transaction and doesn’t correspond to a business domain. But sometimes it is the only available option in the case of legacy systems.
 
+Data mesh leaves many of the implementation decisions to the underlying technology. Data mesh architecture is **agnostic of the underlying technology and infrastructure**—as much as possible. For example, where the data is physically located and whether a consuming data product physically copies data from one location to another are implementation details built by the platform. 
+
+However, data mesh architecture components such as **input** and **output ports** are great interfaces to abstract the internal implementation of data or processing movement across physical boundaries. A simple set of APIs that **connect a data product’s input port to another’s output port** can hide the physical movement of data from one physical storage and trust boundary to another. Similarly, executing the data consumption request can execute a remote query issued from one computational environment to another.
+
+The implication of this design is that a mesh can **span one or multiple physical infrastructures, multiple clouds, and on-prem hosting environments.** This means that when a data product consumes data from its source, in that process, it can physically move data from one underlying hosting environment to another. This seemingly simple capability can have a profound impact on data migration to the cloud and a multicloud data platform.
 
 ## How to Get Started
 
-...
+**Kent Beck’s “3X” model: Explore → Expand → Extract** ([The Product Development Triathlon](https://medium.com/@kentbeck_7670/the-product-development-triathlon-6464e2763c46)). You’ll often see it written with alternate labels like the ones you gave (bootstrap / scale / sustain), and it’s commonly overlaid on the technology adoption curve.
 
+**The three phases**
+
+- **Explore (bootstrap):** You don’t know yet what works. The goal is to find something valuable with as many cheap, fast experiments as possible. Most bets fail, and that’s fine. Speed of learning matters more than quality, efficiency or scalability. Heavy process, long-term architecture and big plans are waste here.
+- **Expand (scale):** Something has taken off, and demand is growing faster than you can handle. The goal is to remove whatever bottleneck is about to break: infrastructure, onboarding, support, hiring. This phase is short, chaotic and reactive. You fix the next thing that’s breaking.
+- **Extract (sustain):** Growth is predictable. The goal is profitability and efficiency: lower costs, higher margins, reliability, incremental improvements. Economies of scale, careful planning and solid engineering pay off here. This is where most traditional management practice comes from.
+
+Beck’s key point is that each phase needs **different behaviors, metrics and even people**. A team running “Extract” habits (ROI cases, roadmaps, polish) in the Explore phase will kill ideas too early. A team running “Explore” habits in the Extract phase will be wasteful and unstable.
+
+**How it maps to the adoption curve**
+
+The early adopters / early majority / laggards terms come from Everett Rogers’ _Diffusion of Innovations_, which Geoffrey Moore built on in [[Book - Crossing the Chasm]]. The rough overlay:
+
+- **Explore** → innovators and early adopters. You’re looking for anyone who’ll put up with something rough because it solves a real problem.
+- **Expand** → crossing the chasm into the early majority. Adoption accelerates, and the product has to become usable by pragmatists.
+- **Extract** → late majority and laggards. The market is mature, so the game is efficiency, retention and squeezing value from an established position.
+
+A fitness function is an objective function used to summarize how close a prospective design solution is to achieving its set aims. In evolutionary computing, the fitness function determines whether an algorithm has improved over time. In [[_My Reviews/Software Design/Book - Building Evolutionary Architectures|Book - Building Evolutionary Architectures]], fitness functions objectively guide the iterations of an architecture toward its set objectives across multiple dimensions such as performance, security, extensibility, etc.
