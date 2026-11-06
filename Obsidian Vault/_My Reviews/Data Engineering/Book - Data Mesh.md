@@ -5,7 +5,8 @@ Category:
   - Management
   - Data Architecture
 Author: Zhamak Dehghani
-Status: Not started
+Status: Completed
+Rating: ⭐️⭐️⭐️
 ---
 [[Domain Driven Design (DDD)]]
 [[Book - Inspired]]

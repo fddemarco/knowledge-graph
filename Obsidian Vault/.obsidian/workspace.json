@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_My Learning Plans/Career Path - Azure Data Engineer.md",
+                "file": "_My Reviews/Data Engineering/Book - Data Mesh.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Career Path - Azure Data Engineer"
+              "title": "Book - Data Mesh"
             }
           }
         ]
@@ -173,7 +173,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_My Learning Plans/Career Path - Azure Data Engineer.md",
+                "file": "_My Reviews/Data Engineering/Book - Data Mesh.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
@@ -202,14 +202,15 @@
   },
   "active": "18e61c71a4cd4038",
   "lastOpenFiles": [
+    "_My Reviews/Product Thinking/Book - Crossing the Chasm.md",
     "_My Reviews/Data Engineering/Book - Data Mesh.md",
+    "_My Learning Plans/Career Path - Azure Data Engineer.md",
     "_My Reviews/Product Thinking/Book - The Design of Everyday Things.md",
     "Engineering/Software Engineering/Python/Library - Kedro.md",
     "Engineering/Software Engineering/Python/Tool - DVC.md",
     "Engineering/Machine Learning/Article - Continuous Delivery for Machine Learning.md",
     "_My Learning Plans/Career Path - AI Engineer.md",
     "_My Learning Plans/Career Path - Azure Data Analyst.md",
-    "_My Learning Plans/Career Path - Azure Data Engineer.md",
     "_My Reviews/Software Design/Book - Software Architecture The Hard Parts.md",
     "Book - Building Evolutionary Architectures.md",
     "_My Reviews/Software Design/Book - Fundamentals of Software Architecture.md",
@@ -230,7 +231,6 @@
     "Engineering/AI Engineering/Anthropic.md",
     "Engineering/Cloud Platforms",
     "Engineering/AI Engineering/OpenAI.md",
-    "Engineering/AI Engineering/xAI.md",
     "Engineering/AI Engineering",
     "_My Reviews/Product Thinking",
     "Engineering/Data Engineering/dlt",
