@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_My Reviews/Data Engineering/Book - Data Mesh.md",
+                "file": "_My Reviews/Communication, Thinking & Growth/Book - Are your Lights On.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Book - Data Mesh"
+              "title": "Book - Are your Lights On"
             }
           }
         ]
@@ -173,7 +173,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_My Reviews/Data Engineering/Book - Data Mesh.md",
+                "file": "_My Reviews/Communication, Thinking & Growth/Book - Are your Lights On.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
@@ -202,8 +202,11 @@
   },
   "active": "18e61c71a4cd4038",
   "lastOpenFiles": [
-    "_My Reviews/Product Thinking/Book - Crossing the Chasm.md",
     "_My Reviews/Data Engineering/Book - Data Mesh.md",
+    "_My Reviews/Communication, Thinking & Growth/Book - Are your Lights On.md",
+    "Untitled.base",
+    "_My Reviews/Communication, Thinking & Growth",
+    "_My Reviews/Product Thinking/Book - Crossing the Chasm.md",
     "_My Learning Plans/Career Path - Azure Data Engineer.md",
     "_My Reviews/Product Thinking/Book - The Design of Everyday Things.md",
     "Engineering/Software Engineering/Python/Library - Kedro.md",
@@ -228,17 +231,13 @@
     "Engineering/Cloud Platforms/AWS.md",
     "Engineering/Cloud Platforms/Databricks.md",
     "Engineering/Cloud Platforms/GCP.md",
-    "Engineering/AI Engineering/Anthropic.md",
     "Engineering/Cloud Platforms",
-    "Engineering/AI Engineering/OpenAI.md",
     "Engineering/AI Engineering",
     "_My Reviews/Product Thinking",
     "Engineering/Data Engineering/dlt",
     "Pasted image 20260925120610.png",
     "Engineering/Software Engineering/Java",
     "Business Analyst/Enterprise Systems",
-    "Business Analyst",
-    "Engineering",
     "Untitled 1.canvas",
     "Untitled.canvas",
     "Pasted image 20260808002007.png"
